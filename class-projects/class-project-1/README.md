@@ -8,7 +8,7 @@
 
 ## Result
 
-Figma file is included as well as short video that captures the resposiveness of the Navigation Bar.
+Figma file is included as well as a short video that captures the resposiveness of the Navigation Bar.
 
 ### Desktop: Homepage
 ![High Fidelity Prototype](/class-projects/class-project-1/HeroSection.jpg)
