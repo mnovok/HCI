@@ -1,4 +1,4 @@
-# [Figma essentials]
+#Figma essentials
 
 ##Task
 -Create a simple responsive hero section in Figma; elements/components in your Figma frame should nicely behave as you resize the corresponding parent frame.
