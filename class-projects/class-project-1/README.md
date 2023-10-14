@@ -8,4 +8,4 @@
 ## Result
 Figma file is included as well as short video that captures the resposiveness of the Navigation Bar,
 
-![High Fidelity Prototype](/HeroSection.jpg)
+![High Fidelity Prototype](/class-projects/class-project-1/HeroSection.jpg)
