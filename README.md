@@ -1,6 +1,7 @@
 ﻿# Human Computer Interaction <!-- omit in toc -->
 
 - [Project Structure](#project-structure)
+- [Class Projects](#class-projects)
 
 
 ## Project Structure
@@ -9,3 +10,7 @@
 - **`/class-projects`**: Results of mini class semester projects.
 - **`/docs`**: Project documentation.
 - **`/misc`**: Miscellaneous files related to the project.
+
+## Class Projects
+
+- [Class Project 1](/class-projects/class-project-1/)
