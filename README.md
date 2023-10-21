@@ -15,4 +15,4 @@
 
 - [Class Project 1](/class-projects/class-project-1/)
 - [Class Project 2](/class-projects/class-project-2/)
-- [Class Project 2](/class-projects/class-project-3/)
+- [Class Project 3](/class-projects/class-project-3/)
