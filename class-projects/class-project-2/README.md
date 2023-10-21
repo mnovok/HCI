@@ -2,7 +2,7 @@
 
 ## Task
 - Create three user personas.
-- Develop an information architecture for your project based on the card sorting method.
+- Develop an information architecture for the project based on the card sorting method.
 - Create a sitemap.
 
 ## Result
