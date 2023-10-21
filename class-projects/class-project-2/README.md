@@ -11,6 +11,8 @@ Created persona profiles, and sitemap based on card sorting method.
 
 ## 1. User Personas
 
+> In software development and design, a user persona is a fictional representation of a typical user of a product or service. User personas are created to help development teams better understand and empathize with the end-users, their needs, goals, and behaviours.
+
 ### Persona 1: The Modern Adventurer
 ![Persona 1](/class-projects/class-project-2/user-personas/persona1.png)
 ![Persona 1 Details](/class-projects/class-project-2/user-personas/about1.png)
@@ -51,5 +53,6 @@ Created persona profiles, and sitemap based on card sorting method.
 
 > A sitemap is a visual or text-based representation of the structure and hierarchy of a website or web application. It serves as a map or outline of all the web pages, content, and sections within the site.
 
+Sitemap created using [excalidraw](https://excalidraw.com/).
 
-
+![Sitemap](/class-projects/class-project-2/sitemap.png)
