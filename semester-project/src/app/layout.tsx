@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
+import logo from 'public/images/logo.png'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,15 +19,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav>
-          <ul className='w-52 flex flex-row justify-between'>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/showcase">Showcase</Link>
-            </li>
-          </ul>
+        <nav className="flex justify-between items-center py-4">
+          <div className="flex items-start">
+            <img src={logo.src} alt="Logo" className="mr-2" /> 
+          </div>
+          <div className="flex space-x-16 mx-2">
+            <Link href="/" className='hover:text-emerald-700'>HOME</Link>
+            <Link href="/destinations" className='hover:text-emerald-700'>DESTINATIONS</Link>
+            <Link href="/guides" className='hover:text-emerald-700'>GUIDES</Link>
+            <Link href="/blogs" className='hover:text-emerald-700'>BLOGS</Link>
+            <Link href="/signin" className='hover:text-emerald-700'>SIGN IN</Link>
+          </div>
         </nav>
         {children}
       </body>
