@@ -1,7 +1,7 @@
 .main {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(2, 100vh);
+    grid-template-rows: 100vh 100vh 100vh;
 }
 
 .landingFrame1 {
@@ -43,8 +43,8 @@
     background-color: var(--primary-light-color);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 20px;
-    column-gap: 10px;
+    padding: 30px;
+    column-gap: 20px;
 }
 
 .discoverFrame2 .discover {
@@ -56,7 +56,16 @@
 }
 
 .discoverFrame2 .discover .discoverTitle {
-    font-size: xx-large;
+    font-size: xxx-large;
     font-weight: bolder;
+}
+
+.discoverFrame2 .discover .discoverText {
+    font-size: large;
+    font-weight: 500;
+}
+
+.Frame3 {
+    background-color: var(--secundary-light-color);
 }
 

@@ -14,8 +14,11 @@ export default function Home() {
           <p className={styles.discoverText}>Unveil the allure of enchanting cities. Immerse yourself in diverse cultures, savor local flavors, and create unforgettable memories.</p>
         </div>
         <div className={styles.destinationsSlider}>
-          
+
         </div>
+      </div>
+      <div className={styles.Frame3}>
+        
       </div>
     </div>
   );
