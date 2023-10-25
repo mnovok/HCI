@@ -1,35 +1,62 @@
-.landing {
+.main {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 100vh);
+}
+
+.landingFrame1 {
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     row-gap: 30px;
     text-transform: uppercase;
     background-image: url(../../public/images/bg.jpg);
-  }
+}
   
-  .landing .slogan {
+.landingFrame1 .slogan {
     color: var(--primary-light-color);
     font-size: 40px;
     text-shadow: 1px 1px 2px black;
     font-weight: bold;
     letter-spacing: -1px;
     padding-top: 35px;
-  }
+}
   
-  .btn {
+.btn {
     background-color: var(--primary-dark-color);
     color: var(--primary-light-color);
     border-radius: 20px;
     padding: 10px 30px 10px 30px;
     text-transform: uppercase;
-  }
+}
 
-  .btn:hover {
+.btn:hover {
     background-color: var(--secondary-light-color);
     color: var(--primary-dark-color);
     cursor: pointer;
-  }
+}
+
+.discoverFrame2 {
+    background-color: var(--primary-light-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    column-gap: 10px;
+}
+
+.discoverFrame2 .discover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    row-gap: 20px;
+}
+
+.discoverFrame2 .discover .discoverTitle {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
