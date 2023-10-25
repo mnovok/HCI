@@ -1,5 +1,3 @@
-# Next.js Web Development
-
 # Class Project 5: Next.js - Dynamic routes, data fetching
 
 This task is based on the instructions you will be given during the labs. 
