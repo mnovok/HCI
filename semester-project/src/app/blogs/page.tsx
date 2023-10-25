@@ -1,5 +1,5 @@
 import Link from "next/link";
-import clsx from "clsx"; 
+import clsx from 'clsx';
 
 export interface Post {
   userId: number;
@@ -110,7 +110,7 @@ export default async function Blog({
         {posts.map((post) => (
           <li key={post.id}>
             <Link href={`blogs/${post.id}`}>
-              <span className="text-2xl text-purple-500">
+              <span className="text-2xl text-green-800">
                 Post {post.title}
               </span>
             </Link>

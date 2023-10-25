@@ -11,6 +11,9 @@
   --secondary-light-color: #B3E0CA;
   --primary-dark-color: #065E33;
   --secondary-dark-color: #065E35;
+  --primary-darker-color: #04371E;
+  --text-medium-color: #6E8199;
+  --text-dark-color: #404B59;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +27,12 @@
 h1{
   font-weight: bolder;
   font-size: larger;
+}
+
+h2{
+  columns: var(--primary-darker-color);
+}
+
+li{
+  color: var(--text-medium-color);
 }
