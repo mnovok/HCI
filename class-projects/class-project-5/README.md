@@ -1,22 +1,26 @@
 # Next.js Web Development
 
-# Class Project 4: Low/High-fidelity prototype
+# Class Project 5: Next.js - Dynamic routes, data fetching
+
+This task is based on the instructions you will be given during the labs. 
+
+> Please do not hesitate to contact us if you need help or assistance (remember, we encourage _fail-fast_ principle).
 
 **Project Tasks:**
 
-1. **Prototype Development:**
-   - Utilizing Figma, design either a low or high-fidelity prototype for the landing/home page of your web application.
-   - Do make use of ChatGPT for your project to speed this task up. Provide it with some context: personas, sitemap, description, developed in the previous tasks. Then ask it to propose design requirements and content outline for your page.
-   - **Example prompts**:
-     - _Propose  design requirements for a landing page._
-     - _Give content outline for my landing page._
-     - _Suggest short text for my hero section._
+1. **Implement Dynamic Routes:**
+   - Utilize Next.js to create [dynamic routes](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes) for blog posts (or alternatively your own resources like products).
+   - Implement dynamic routing to handle posts or products index page and individual posts/product pages.
 
-2. **Design Principles and Guidelines:**
-   - Apply fundamental design principles, including consistency, readability, and visual hierarchy, to create an aesthetically pleasing and user-friendly interface.
-   - In particular, try to apply CRAP principles for visual design.
-  
-  > HINT: Do not try to perfect your design at this stage. Design is an iterative process and at this stage it is important to move fast, fail and re-iterate. In this way, you are more likely to explore different possibilities and alternatives.
+2. **Server-Side Data Fetching**
+   - Integrate [JSONPlaceholder](https://jsonplaceholder.typicode.com/), a free online REST API, to fetch fake product data dynamically. Alternatively, use your own REST API server.
+   - Use [server-side data fetching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) methods to retrieve product information from JSONPlaceholder and populate the blog pages with realistic fake data.
+   - _Optionally (for more experienced):_ Try to implement pagination.
+
+3. **Deploy to Vercel or Netlify:**
+   - Re-deploy your updated webpage to Vercel or Netlify for public access.
+   - Test the working of dynamic routes.
+   - [Deploying Your Next.js App](https://nextjs.org/learn/basics/deploying-nextjs-app/deploy)
 
 ## Result
 
