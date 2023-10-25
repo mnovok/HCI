@@ -6,4 +6,7 @@
 
 ## Result
 
+Created a high-fidelity prototype for desktop version of Homepage.
+
+### Homepage - Desktop
 ![Homepage Desktop High-Fidelity](/class-projects/class-project-4/homepage-desktop-high-fidelity.png)
