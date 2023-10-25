@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import logo from 'public/images/logo.png'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +23,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <nav className="bg-white bg-opacity-50 flex justify-between items-center py-1.5 sticky top-0">
           <div className="flex items-start mx-4">
-            <img src={logo.src} alt="Logo" className="mr-2" /> 
+            {/* <img src={logo.src} alt="Logo" className="mr-2" />  */}
+            <Image src={logo} alt="Logo" className="mr-2" />
           </div>
           <div className="flex space-x-16 mx-4">
             <Link href="/" className='hover:text-emerald-700'>HOME</Link>
