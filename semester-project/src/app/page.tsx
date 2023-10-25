@@ -1,7 +1,13 @@
+import styles from './home.module.css'
+import Link from 'next/link'
+
 export default function Home() {
   return (
-    <div className="flex justify-center">
-      <h1>This is Home page</h1>
-    </div>
+    <main className="">
+      <div className={styles.landing}>
+        <p className={styles.slogan}>Navigating Your Journey, <br /> One Adventure at a Time!</p>
+        <Link href="/destinations" className={styles.btn}>Explore Now</Link>
+      </div>
+    </main>
   );
 }

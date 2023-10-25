@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="flex justify-between items-center py-4">
+        <nav className="flex justify-between items-center py-1.5">
           <div className="flex items-start">
             <img src={logo.src} alt="Logo" className="mr-2" /> 
           </div>
