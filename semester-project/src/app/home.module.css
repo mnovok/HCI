@@ -18,11 +18,11 @@
   
 .landingFrame1 .slogan {
     color: var(--primary-light-color);
-    font-size: 40px;
+    font-size: 50px;
     text-shadow: 1px 1px 2px black;
     font-weight: bold;
     letter-spacing: -1px;
-    padding-top: 35px;
+    padding-top: 25px;
 }
   
 .btn {
@@ -57,16 +57,25 @@
 }
 
 .discoverFrame2 .discover .discoverTitle {
-    font-size: xxx-large;
+    font-size: 80px;
     font-weight: bolder;
+    color: var(--primary-darker-color);
 }
 
 .discoverFrame2 .discover .discoverText {
-    font-size: large;
-    font-weight: 500;
+    font-size: xx-large;
+    font-weight: 600;
 }
 
 .Frame3 {
     background-color: var(--secundary-light-color);
 }
 
+.discover {
+    margin: 5%;
+    width: 80%;
+}
+
+.active {
+    background-color: var(--primary-dark-color);
+}

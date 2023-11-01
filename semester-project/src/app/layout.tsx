@@ -4,6 +4,7 @@ import './globals.css'
 import Link from 'next/link'
 import logo from 'public/images/logo.png'
 import Image from 'next/image'
+import styles from './home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,23 +22,21 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <body className={inter.className}>
-        <nav className="bg-white bg-opacity-50 flex justify-between items-center py-1.5 sticky top-0">
+        <nav className="bg-white flex justify-between items-center py-1.5 sticky top-0">
           <div className="flex items-start mx-4">
-            {/* <img src={logo.src} alt="Logo" className="mr-2" />  */}
-            <Image src={logo} alt="Logo" className="mr-2" />
+            <a href=""> <Image src={logo} alt="Logo" className="mr-2" /></a>
           </div>
           <div className="flex space-x-16 mx-4">
             <Link href="/" className='hover:text-emerald-700'>HOME</Link>
             <Link href="/destinations" className='hover:text-emerald-700'>DESTINATIONS</Link>
             <Link href="/guides" className='hover:text-emerald-700'>GUIDES</Link>
-            <Link href="/blogs" className='hover:text-emerald-700'>BLOGS</Link>
+            <Link href="/blogs?_page=1&_limit=10" className='hover:text-emerald-700'>BLOGS</Link>
             <Link href="/signin" className='hover:text-emerald-700'>SIGN IN</Link>
           </div>
         </nav>
         
         {children}
-
-        
+   
       <footer className="bg-[#d9e3de]">
           <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
               <div className="md:flex md:justify-between">
@@ -45,10 +44,20 @@ export default function RootLayout({
                     <a href="" className="flex items-center">
                       <Image src={logo} alt="Logo"/>
                     </a>
+                    <h1 className='text-shadow-md py-4 px-2 uppercase'>Subscribe</h1>
+                    <p className='text-shadow-md py-1 px-2'>Sign up for our newsletter!</p>
+                    <div className="py-2 px-2">
+                      <input
+                        type="text"
+                        className="rounded-full bg-gray-300 p-2 my-4 focus:ring focus:ring-green-700"
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                    <Link href="/" className={`${styles.btn} m-2`}>Submit</Link>
                 </div>
                 <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold uppercase">Company</h2>
+                        <h2 className="mb-6 text-base font-semibold uppercase">Company</h2>
                         <ul className="text-gray-500 dark:text-gray-400 font-medium">
                             <li className="mb-4"><a href="" className="hover:underline">What's New?</a></li>
                             <li className="mb-4"><a href="" className="hover:underline">About Us</a></li>
@@ -56,7 +65,7 @@ export default function RootLayout({
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold uppercase">Resources</h2>
+                        <h2 className="mb-6 text-base font-semibold uppercase">Resources</h2>
                         <ul className="text-gray-500 dark:text-gray-400 font-medium">
                             <li className="mb-4"><a href="" className="hover:underline ">Privacy Policy</a></li>
                             <li className="mb-4"><a href="" className="hover:underline">Terms  &amp; Conditions</a></li>
@@ -64,7 +73,7 @@ export default function RootLayout({
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold uppercase">Contact</h2>
+                        <h2 className="mb-6 text-base font-semibold uppercase">Contact</h2>
                         <ul className="text-gray-500 dark:text-gray-400 font-medium">
                             <li className="mb-4"><a href="https://github.com/mnovok/HCI" className="hover:underline">GitHub</a></li>
                             <li className="mb-4"><a href="#">+385 99 707 2510</a></li>
@@ -107,13 +116,15 @@ export default function RootLayout({
                     </div>
                 </div>
             </div>
-            <hr className="my-6 border-gray-500 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <div className="sm:flex sm:items-center sm:justify-center">
-            <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400"> Copyright © 2023. All rights reserved</span>
-            </div>
           </div>
+          <div className='bg-[#04371E]'>
+           <hr className="my-6 border-gray-500 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <div className="sm:flex sm:items-center sm:justify-center p-2">
+              <span className="block text-base text-gray-300 sm:text-center dark:text-gray-400"> Copyright © 2023. All rights reserved</span>
+            </div>
+            <div className="h-4"></div> {/* Add space below the text */}
+         </div>
       </footer>
-
       </body>
     </html>
   )
