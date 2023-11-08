@@ -24,6 +24,12 @@
     letter-spacing: -1px;
     padding-top: 0.5vw;
 }
+
+@media (max-width: 768px) {
+    .landingFrame1 {
+        height: 70vh;
+    }
+}
   
 .btn {
     background-color: var(--primary-dark-color);
