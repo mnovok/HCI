@@ -79,3 +79,7 @@
 .active {
     background-color: var(--primary-dark-color);
 }
+
+@media (max-width: 768px) {
+    
+  }

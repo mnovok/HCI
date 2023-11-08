@@ -1,0 +1,22 @@
+.navContainer {
+    background-color: #fff; /* bg-white */
+    display: flex; /* flex */
+    justify-content: space-between; /* justify-between */
+    align-items: center; /* items-center */
+    padding: 0.5rem 0.2rem; /* py-1.5 */
+    position: sticky; /* sticky */
+    top: 0; /* top-0 */
+}
+
+.navList {
+    display: flex; /* flex */
+    gap: 2rem; /* gap-8 (8 multiplied by 0.25rem, which is the default gap unit in Tailwind CSS) */
+}
+
+.tabs {
+    text-transform: uppercase;
+}
+
+.tabs:hover {
+    color: #059669; /* The hexadecimal value for text-emerald-700 in Tailwind CSS */
+}

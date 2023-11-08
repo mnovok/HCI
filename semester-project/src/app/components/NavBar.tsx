@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FC } from "react";
 import Logo from "./Logo";
+import styles from './nav.module.css'
 
 interface NavbarProps {
   // Record of string keys and string values where each value is a path starting with a slash
@@ -9,12 +10,12 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ pages }) => {
   return (
-    <nav className="bg-white flex justify-between items-center py-1.5 sticky top-0">
+    <nav className={styles.navContainer}>
           <Logo />
-          <ul className="flex gap-8">
+          <ul className={styles.navList}>
             {Object.entries(pages).map(([name, path]) => (
                 <li key={name}>
-                    <Link href={path} className="text-transform: uppercase hover:text-emerald-700">{name}</Link>
+                    <Link href={path} className={styles.tabs}>{name}</Link>
                 </li>
             ))}
           </ul>
