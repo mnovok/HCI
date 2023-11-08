@@ -12,7 +12,14 @@
     position: relative;
     height: 17vw;
     width: 17vw;
+    opacity: 1;
+    cursor: pointer;
 }
+
+.images:hover {
+    opacity: 80%;
+}
+
 
 @media (max-width: 768px) {
     .images {

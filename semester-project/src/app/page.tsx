@@ -1,3 +1,4 @@
+import HelpSection from './_components/help/HelpSection';
 import HeroSection from './_components/hero/HeroSection';
 import styles from './home.module.css'
 import Link from 'next/link'
@@ -21,7 +22,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.Frame3}>
-        
+        <HelpSection />
       </div>
     </div>
   );
