@@ -21,7 +21,7 @@ const images: HeroImageObject[] = [
 const HeroSection = () => (
       <div className={styles.imageContainer}>
         {images.map((imageObj, index) => (
-          <div key={index} className="relative h-52 w-52">
+          <div key={index} className={styles.images}>
             <Image
               src={imageObj.image}
               alt={`Hero image ${index + 1}`}

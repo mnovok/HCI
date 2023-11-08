@@ -7,3 +7,16 @@
     align-items: center;
     justify-items: center;
 }
+
+.images {
+    position: relative;
+    height: 17vw;
+    width: 17vw;
+}
+
+@media (max-width: 768px) {
+    .images {
+        height: 35vw;
+        width: 35vw;
+    }
+}

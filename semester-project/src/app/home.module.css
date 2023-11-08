@@ -18,20 +18,20 @@
   
 .landingFrame1 .slogan {
     color: var(--primary-light-color);
-    font-size: 50px;
+    font-size: 4vw;
     text-shadow: 1px 1px 2px black;
     font-weight: bold;
     letter-spacing: -1px;
-    padding-top: 25px;
+    padding-top: 0.5vw;
 }
   
 .btn {
     background-color: var(--primary-dark-color);
     color: var(--primary-light-color);
-    border-radius: 20px;
+    border-radius: 5vw;
     padding: 10px 30px 10px 30px;
     text-transform: uppercase;
-    margin-top: 2%;
+    font-size: 1.7vw;
 }
 
 .btn:hover {
@@ -40,10 +40,14 @@
     cursor: pointer;
 }
 
+
+/* Frame 2 : Discover*/
+
 .discoverFrame2 {
     background-color: var(--primary-light-color);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: fit-content;
     padding: 30px;
     column-gap: 20px;
 }
@@ -52,28 +56,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;;
+    align-items: flex-start;
     row-gap: 20px;
+    margin: 5%;
+    width: 80%;
 }
 
 .discoverFrame2 .discover .discoverTitle {
-    font-size: 80px;
+    font-size: 5vw;
     font-weight: bolder;
     color: var(--primary-darker-color);
 }
 
 .discoverFrame2 .discover .discoverText {
-    font-size: xx-large;
+    font-size: 2vw;
     font-weight: 600;
-}
-
-.Frame3 {
-    background-color: var(--secundary-light-color);
-}
-
-.discover {
-    margin: 5%;
-    width: 80%;
 }
 
 .active {
@@ -88,14 +85,34 @@
 }
 
 @media (max-width: 768px) {
-    .main {
-        display: grid;
+    .discoverFrame2 {
         grid-template-columns: 100%;
-        width: 100%;
+        height: fit-content;
+        justify-items: center;
+        row-gap: 8vw;
     }
 
-    .main .landingFrame1 .slogan {
-        font-size: 1em;
+    .discoverFrame2 .discover {
+        align-items: center;
+        flex-wrap: wrap;
     }
-    
+
+    .discoverFrame2 .discover .discoverText {
+        text-align: center;
+    }
+
+    .discoverFrame2 .heroDestinations {
+        align-items: center;
+        flex-wrap: wrap;
+        margin: auto;
+        padding: 0 0 0 0;
+    }
+}
+
+
+
+/* Frame 3: Discover*/
+
+.Frame3 {
+    background-color: var(--secundary-light-color);
 }
