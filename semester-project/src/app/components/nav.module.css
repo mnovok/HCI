@@ -12,11 +12,15 @@
 
 .navList {
     display: flex; /* flex */
-    gap: 2rem; /* gap-8 (8 multiplied by 0.25rem, which is the default gap unit in Tailwind CSS) */
+    gap: 4rem; /* gap-8 (8 multiplied by 0.25rem, which is the default gap unit in Tailwind CSS) */
+    padding-right: 2%;
 }
 
 .tabs {
     text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+    color:#04371E;
+    font-weight: 500;
 }
 
 .tabs:hover {

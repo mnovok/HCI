@@ -3,21 +3,37 @@
 import Link from "next/link";
 import { FC, useState } from "react";
 import Logo from "./Logo";
-import styles from './nav.module.css'
+import styles from './nav.module.css';
+import { cn } from "../../../lib/utils";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {
   // Record of string keys and string values where each value is a path starting with a slash
   pages: Record<string, `/${string}`>;
 }
 
+const baseClass =
+  "uppercase whitespace-nowrap text-base px-5 py-5 text-[#065E33] hover:bg-[#B3E0CA]";
+  
 const Navbar: FC<NavbarProps> = ({ pages }) => {
+    const pathName = usePathname();
+
     return (
         <nav className={styles.navContainer}>
             <Logo />
             <ul className={styles.navList}>
                 {Object.entries(pages).map(([name, path]) => (
                     <li key={name}>
-                        <Link href={path} className={styles.tabs}>{name}</Link>
+                        <Link href={path} className={styles.tabs}>
+                        <span
+                            className={cn(baseClass, {
+                            "bg-[#065E33] text-[#d9e3de] pointer-events-none":
+                                path === pathName,
+                            })}
+                        >
+                            {name === "signin" ? "Sign In" : name}
+                        </span>
+                        </Link>
                     </li>
                 ))}
             </ul>
@@ -27,7 +43,9 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                         <ul className={styles.dropdown}>
                             {Object.entries(pages).map(([name, path]) => (
                                 <li key={name}>
-                                    <Link href={path} className={styles.tabs}>{name}</Link>
+                                    <Link href={path} className={styles.tabs}>
+                                        {name === "signin" ? "Sign In" : name}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

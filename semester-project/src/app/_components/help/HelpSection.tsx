@@ -10,7 +10,11 @@ const HelpSection: FC<SVGProps<SVGSVGElement>> = ({
     return (
         <div className={styles.help}>
             <div className={styles.group}>
-                <div className={styles.icon}></div>
+                <div className={styles.icon}>
+                    <div className={styles.centeredImage}>
+                        <Image src="/images/createAccount.png" alt="Icon" width={100} height={100} />
+                    </div>
+                </div>
                 <div className={styles.title}>Create Account</div>
                 <div className={styles.text}>Customize your profile page</div>
             </div>

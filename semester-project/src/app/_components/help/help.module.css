@@ -22,18 +22,26 @@
   height: 10vw;
   box-shadow: inset 0px 4px 4px rgba(71, 71, 71, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(71, 71, 71, 0.3));
-  background-color: white;
+  background-color: #d9e3de;
   border-radius: 50%;
 }
 
 .title {
   font-size: 2vw;
   font-weight: 600;
+  color: #04371E;
 }
 
 .text {
   font-size: 1.5vw;
   color: gray;
+}
+
+.centeredImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
 }
 
 @media (max-width: 768px) {
