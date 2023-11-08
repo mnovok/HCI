@@ -43,6 +43,10 @@
 
     .menu ul {
         display: flex;
+        background-color: white;
+    }
+    .menu ul li{
+        padding-right: 20px;
     }
   
     .menu ul li ul {
@@ -52,17 +56,20 @@
         position: absolute;
         padding-left: 0;
         right: 0;
-        background-color: white;
+        
     }
 
     .menu ul li:hover>ul, .menu ul li ul:hover {
         visibility: visible;
         opacity: 1;
-        display: block;
+        display: flex;
         min-width: 250px;
         padding-top: 20px;
         margin-top: 0em;
         z-index: -1;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
     .menu ul li ul li {
@@ -76,7 +83,7 @@
 
     .menu ul li ul li a:hover {
         padding-left: 10px;
-        border-left: 2px solid #3ca0e7;
+        border-left: 2px solid var(--primary-dark-color);
     }
 
 }
