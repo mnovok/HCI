@@ -80,6 +80,9 @@
     background-color: var(--primary-dark-color);
 }
 
-@media (max-width: 768px) {
-    
-  }
+.heroDestinations {
+    padding: 5em 5em 5em 5em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
