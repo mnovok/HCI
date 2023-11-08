@@ -14,7 +14,7 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
           <ul className="flex gap-8">
             {Object.entries(pages).map(([name, path]) => (
                 <li key={name}>
-                    <Link href={path} className="hover:text-emerald-700">{name}</Link>
+                    <Link href={path} className="text-transform: uppercase hover:text-emerald-700">{name}</Link>
                 </li>
             ))}
           </ul>
