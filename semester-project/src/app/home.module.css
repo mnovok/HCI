@@ -86,3 +86,16 @@
     justify-content: center;
     display: flex;
 }
+
+@media (max-width: 768px) {
+    .main {
+        display: grid;
+        grid-template-columns: 100%;
+        width: 100%;
+    }
+
+    .main .landingFrame1 .slogan {
+        font-size: 1em;
+    }
+    
+}
