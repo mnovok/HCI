@@ -1,3 +1,4 @@
+
 .navContainer {
     background-color: #fff; /* bg-white */
     display: flex; /* flex */
@@ -19,4 +20,63 @@
 
 .tabs:hover {
     color: #059669; /* The hexadecimal value for text-emerald-700 in Tailwind CSS */
+}
+
+.menu {
+    display: none;
+}
+
+.menu ul li ul {
+    display: none;
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .navList {
+      display: none; 
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .menu ul {
+        display: flex;
+    }
+  
+    .menu ul li ul {
+        visibility: hidden;
+        display: none;
+        opacity: 0;
+        position: absolute;
+        padding-left: 0;
+        right: 0;
+        background-color: white;
+    }
+
+    .menu ul li:hover>ul, .menu ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        min-width: 250px;
+        padding-top: 20px;
+        margin-top: 0em;
+        z-index: -1;
+    }
+
+    .menu ul li ul li {
+        margin-bottom: 20px;
+    }
+
+    .menu ul li ul li a {
+        transition: all 0.5s ease;
+        text-decoration: none;
+    }
+
+    .menu ul li ul li a:hover {
+        padding-left: 10px;
+        border-left: 2px solid #3ca0e7;
+    }
+
 }
