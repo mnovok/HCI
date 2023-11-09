@@ -41,7 +41,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20%;
+  height: 100%; 
+}
+
+.centeredImage img {
+  max-width: 80%;
+  max-height: 80%;
 }
 
 @media (max-width: 768px) {

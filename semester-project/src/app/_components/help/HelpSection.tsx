@@ -19,12 +19,24 @@ const HelpSection: FC<SVGProps<SVGSVGElement>> = ({
                 <div className={styles.text}>Customize your profile page</div>
             </div>
             <div className={styles.group}>
-                <div className={styles.icon}></div>
+                <div className={styles.icon}>
+                    <div className={styles.icon}>
+                        <div className={styles.centeredImage}>
+                            <Image src="/images/explore.png" alt="Icon" width={100} height={100} />
+                        </div>
+                    </div>
+                </div>
                 <div className={styles.title}>Explore</div>
                 <div className={styles.text}>Learn more about different destinations</div>
             </div>
             <div className={styles.group}>
-                <div className={styles.icon}></div>
+                <div className={styles.icon}>
+                    <div className={styles.icon}>
+                        <div className={styles.centeredImage}>
+                            <Image src="/images/connect.png" alt="Icon" width={100} height={100} />
+                        </div>
+                    </div>
+                </div>
                 <div className={styles.title}>Share and Connect</div>
                 <div className={styles.text}>Write about your own experiences </div>
             </div>
