@@ -123,38 +123,38 @@ export default async function Blog({
             </li>
           ))}
         </ul> */}
-    <div className="grid grid-cols-2 gap-8 py-8">
-      {posts.map((post, index) => (
-        <div key={post.id} className={`relative ${index === 0 ? 'col-span-2' : ''}`}>
-          <Link href={`blogs/${post.id}`}>
-            <div
-              className="p-4 border border-gray-300 rounded h-64 relative hover:opacity-80"
-              style={{
-                backgroundImage: index === 0 ? `url(${imageUrl1})` : `url(${index % 2 === 0 ? imageUrl2 : imageUrl3})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
-            >
-              <span className="text-2xl text-gray-100 drop-shadow-2xl font-semibold capitalize">
-                Post {post.title}
-              </span>
-              
-              <div className="absolute bottom-4 left-4 w-full flex items-center p-2">
-                <div className="w-10 h-10 rounded-full mr-4" style={{
-                  backgroundImage: `url(${avatar})`,  backgroundSize: 'cover',
+      <div className="grid grid-cols-2 gap-8 py-8">
+        {posts.map((post, index) => (
+          <div key={post.id} className={`relative ${index === 0 ? 'col-span-full' : 'col-span-2 md:col-span-1'}`}>
+            <Link href={`blogs/${post.id}`}>
+              <div
+                className="p-4 border border-gray-300 rounded h-64 relative hover:opacity-80"
+                style={{
+                  backgroundImage: index === 0 ? `url(${imageUrl1})` : `url(${index % 2 === 0 ? imageUrl2 : imageUrl3})`,
+                  backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
-                }}>
-                </div> 
-                <span className="text-gray-100 text-sm font-medium tracking-widest uppercase">Alex Park</span> 
-                <span className="text-gray-100 mx-2  tracking-widest">•</span>
-                <span className="text-gray-100 text-sm font-medium  tracking-widest">8/11/2023</span> 
+                }}
+              >
+                <span className="text-2xl md:text-xl lg:text-2xl xl:text-3xl text-gray-100 drop-shadow-2xl font-semibold capitalize">
+                  Post {post.title}
+                </span>
+                
+                <div className="absolute bottom-4 left-4 w-full flex items-center p-2">
+                  <div className="w-10 h-10 rounded-full mr-4" style={{
+                    backgroundImage: `url(${avatar})`,  backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                  }}>
+                  </div> 
+                  <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest uppercase">Alex Park</span> 
+                  <span className="text-gray-100 mx-2  text-xs md:text-sm lg:text-base xl:text-lg tracking-widest">•</span>
+                  <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest">8/11/2023</span> 
+                </div>
               </div>
-            </div>
-          </Link>
-        </div>
-      ))}
+            </Link>
+          </div>
+        ))}
       </div>
       </main>
     </div>
