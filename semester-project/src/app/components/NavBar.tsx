@@ -20,7 +20,9 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
 
     return (
         <nav className={styles.navContainer}>
-            <Logo />
+            <Link href={`/`}>
+                <Logo />
+            </Link>
             <ul className={styles.navList}>
                 {Object.entries(pages).map(([name, path]) => (
                     <li key={name}>
@@ -28,7 +30,7 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                         <span
                             className={cn(baseClass, {
                             "bg-[#065E33] text-[#d9e3de] pointer-events-none":
-                                path === pathName,
+                                (path === pathName || (name === 'blogs' && pathName === '/blogs')),
                             })}
                         >
                             {name === "signin" ? "Sign In" : name}
@@ -39,7 +41,7 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
             </ul>
             <div className={styles.menu}>
                 <ul>
-                    <li>MENU
+                    <li className="text-[#065E35] font-semibold">MENU
                         <ul className={styles.dropdown}>
                             {Object.entries(pages).map(([name, path]) => (
                                 <li key={name}>

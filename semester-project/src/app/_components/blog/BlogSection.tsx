@@ -73,13 +73,13 @@ const BlogSection = () => {
                     backgroundRepeat: 'no-repeat',
                   }}
                 ></div>
-                <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest uppercase">
+                <span className="text-gray-100 text-xs md:text-xs lg:text-base xl:text-lg font-medium tracking-widest uppercase">
                   John Doe
                 </span>
-                <span className="text-gray-100 mx-2 text-xs md:text-sm lg:text-base xl:text-lg tracking-widest">
+                <span className="text-gray-100 mx-2 text-xs md:text-xs lg:text-base xl:text-lg tracking-widest">
                   •
                 </span>
-                <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest">
+                <span className="text-gray-100 text-xs md:text-xs lg:text-base xl:text-lg font-medium tracking-widest">
                   8/12/2023
                 </span>
               </div>
@@ -88,6 +88,7 @@ const BlogSection = () => {
         </div>            
 
         </div>
+        <Link href="/blogs?_page=1&_limit=11" className={styles.btn}>Load more</Link>
     </div>
  )
 };

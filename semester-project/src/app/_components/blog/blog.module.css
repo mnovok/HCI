@@ -41,4 +41,26 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; 
-  }
+}
+
+.btn {
+    background-color: var(--primary-dark-color);
+    color: var(--primary-light-color);
+    border-radius: 5vw;
+    padding: 10px 30px 10px 30px;
+    text-transform: uppercase;
+    font-size: 1.7vw;
+    margin: 5%;
+}
+
+.btn:hover {
+    background-color: var(--secondary-light-color);
+    color: var(--primary-dark-color);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .blogsContainer {
+      grid-template-columns: 1fr;
+    }
+}

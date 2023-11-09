@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import styles from './hero.module.css';
+import Link from "next/link";
 
 import heroImage1 from "/public/hero/split.jpg";
 import heroImage2 from "/public/hero/london.jpg";
@@ -24,6 +25,7 @@ const HeroSection = () => (
   <div className={styles.imageContainer}>
     {images.map((imageObj, index) => (
       <div key={index} className={styles.images}>
+        <Link href={`destinations`}>
         <Image
           src={imageObj.image}
           alt={`Hero image ${index + 1}`}
@@ -46,6 +48,7 @@ const HeroSection = () => (
               <h2 className={styles.countryTitle}>{imageObj.country}</h2>
           </div>
         </div>
+        </Link>
       </div>
     ))}
   </div>
