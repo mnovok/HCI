@@ -14,6 +14,7 @@
   --primary-darker-color: #04371E;
   --text-medium-color: #6E8199;
   --text-dark-color: #404B59;
+  --text-light-color: #EDEDED;
 }
 
 @media (prefers-color-scheme: dark) {
