@@ -64,9 +64,9 @@ h2.countryTitle {
         width: 35vw;
     }
     .cityTitle{
-        font-size: 14px;
+        font-size: 3vw;
     }
     .countryTitle{
-        font-size: 10px;
+        font-size: 1vw;
     }
 }

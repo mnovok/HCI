@@ -87,7 +87,28 @@
 }
 
 @media (max-width: 768px) {
-    .destinationsContainer{
-        grid-template-columns: 1fr;
+    .main {
+        grid-template-columns: 0.3fr 1fr;
     }
+
+    .destinationsContainer{
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .categoriesContainer {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5vw 0 10vw 0;
+    }
+
+    .categoriesContainer .category {
+        height: fit-content;
+        width: 15vw;
+        padding: 0.5vw 1vw;
+        text-align: center;
+    }
+
+
 }
