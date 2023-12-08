@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import styles from './help.module.css'
 import { FC, SVGProps } from "react";
+import Link from "next/link";
 
 const HelpSection: FC<SVGProps<SVGSVGElement>> = ({
     width = 42,
@@ -9,7 +10,7 @@ const HelpSection: FC<SVGProps<SVGSVGElement>> = ({
   }) => {
     return (
         <div className={styles.help}>
-            <div className={styles.group}>
+            <Link href={`/signin`} className={styles.group}>
                 <div className={styles.icon}>
                     <div className={styles.centeredImage}>
                         <Image src="/images/createAccount.png" alt="Icon" width={100} height={100} />
@@ -17,25 +18,25 @@ const HelpSection: FC<SVGProps<SVGSVGElement>> = ({
                 </div>
                 <div className={styles.title}>Create Account</div>
                 <div className={styles.text}>Customize your profile page</div>
-            </div>
-            <div className={styles.group}>
+            </Link>
+            <Link href={`/destinations`} className={styles.group}>
                 <div className={styles.icon}>
-                        <div className={styles.centeredImage}>
-                            <Image src="/images/explore.png" alt="Icon" width={100} height={100} />
-                        </div>
+                    <div className={styles.centeredImage}>
+                        <Image src="/images/explore.png" alt="Icon" width={100} height={100} />
+                    </div>
                 </div>
                 <div className={styles.title}>Explore</div>
                 <div className={styles.text}>Learn more about different destinations</div>
-            </div>
-            <div className={styles.group}>
+            </Link>
+            <Link href={`/blog`} className={styles.group}>
                 <div className={styles.icon}>
-                        <div className={styles.centeredImage}>
-                            <Image src="/images/connect.png" alt="Icon" width={100} height={100} />
-                        </div>
+                    <div className={styles.centeredImage}>
+                        <Image src="/images/connect.png" alt="Icon" width={100} height={100} />
+                    </div>
                 </div>
                 <div className={styles.title}>Share and Connect</div>
                 <div className={styles.text}>Write about your own experiences </div>
-            </div>
+            </Link>
         </div>
     );
   };

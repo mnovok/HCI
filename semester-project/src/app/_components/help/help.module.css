@@ -17,6 +17,10 @@
   justify-items: center;
 }
 
+.group:hover {
+  cursor: pointer;
+}
+
 .icon {
   width: 10vw;
   height: 10vw;

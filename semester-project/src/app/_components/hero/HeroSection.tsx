@@ -25,20 +25,12 @@ const images: HeroImageObject[] = [
 const HeroSection = () => (
   
   <div className={styles.imageContainer}>
-    {images.map((imageObj, index) => (
-      <div key={index} className={styles.images}>
-        <Link href={`destinations`}>
-        <Image
-          src={imageObj.image}
-          alt={`Hero image ${index + 1}`}
-          fill
-          style={{
-            objectFit: "cover",
-            borderRadius: `${imageObj.borderRadius}`,
-          }}
-        />
-        <div className={styles.textContainer}>
-          <h1 className={styles.cityTitle}>{imageObj.city}</h1>
+    {destinations.slice(0,4).map((destination: TypeDestinationListItem) => (
+      <div key={destination.id} className={styles.images}>
+        <Link href={`destinations/${destination.id}`}>
+          <Image src={destination.heroImage} alt={`Hero image ${destination.id + 1}`} fill style={{objectFit: "cover", borderRadius: destination.borderRadius}}></Image>
+          <div className={styles.textContainer}>
+          <h1 className={styles.cityTitle}>{destination.name}</h1>
           <div className={styles.subtitleContainer}>
             <Image
               src="/images/location.png"
@@ -47,12 +39,14 @@ const HeroSection = () => (
               height={50}
               className={styles.smallImage}
             />
-              <h2 className={styles.countryTitle}>{imageObj.country}</h2>
+              <h2 className={styles.countryTitle}>{destination.country}</h2>
           </div>
-        </div>
+          </div>
         </Link>
       </div>
     ))}
+
+    
   </div>
 );
 
