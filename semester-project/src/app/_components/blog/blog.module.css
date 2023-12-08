@@ -15,29 +15,30 @@
     display: flex;
     flex-direction: column; 
     padding: 150px; 
+    row-gap: 5vw;
 }
 
-.titleContainer {
+.blog .titleContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center; 
 }
 
-.title{
+.blog .titleContainer .title{
     font-size: 4vw;
     font-weight: bolder;
     color: var(--secondary-dark-color);
     padding-bottom: 2%;
 }
 
-.description{
+.blog .titleContainer .description{
     font-size: 2vw;
     font-weight: 600;
     padding-bottom: 5%;
 }
 
-.blogsContainer {
+.blog .blogsContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; 
@@ -60,7 +61,34 @@
 }
 
 @media (max-width: 768px) {
-    .blogsContainer {
-      grid-template-columns: 1fr;
+    .blog {
+        grid-template-columns: 100%;
+        height: fit-content;
+        justify-items: center;
+        row-gap: 8vw;
+        padding: 10vw 10vw;
+    }
+
+    .blog .titleContainer {
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    
+    .blog .titleContainer .title {
+        font-size: 7vw;
+    }
+
+    .blog .titleContainer .description {
+        text-align: center;
+        font-size: 4vw;
+    }
+
+    .blog .blogsContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        font-size: 3vw;
     }
 }

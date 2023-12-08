@@ -103,8 +103,14 @@
         flex-wrap: wrap;
     }
 
+    
+    .discoverFrame2 .discover .discoverTitle {
+        font-size: 7vw;
+    }
+
     .discoverFrame2 .discover .discoverText {
         text-align: center;
+        font-size: 4vw;
     }
 
     .discoverFrame2 .heroDestinations {
@@ -112,6 +118,10 @@
         flex-wrap: wrap;
         margin: auto;
         padding: 0 0 0 0;
+    }
+
+    .btn {
+        font-size: 3vw;
     }
 }
 

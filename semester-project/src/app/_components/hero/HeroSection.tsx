@@ -1,11 +1,12 @@
 import Image, { StaticImageData } from "next/image";
 import styles from './hero.module.css';
 import Link from "next/link";
+import { TypeDestinationListItem, destinations } from "../../destinations/destinationsList";
 
-import heroImage1 from "/public/hero/split.jpg";
-import heroImage2 from "/public/hero/london.jpg";
-import heroImage4 from "/public/hero/barcelona.jpg";
-import heroImage3 from "/public/hero/newyork.jpg";
+import heroImage1 from "/public/images/destinations/split.jpg";
+import heroImage2 from "/public/images/destinations/nyc.jpg";
+import heroImage4 from "/public/images/destinations/banff.jpg";
+import heroImage3 from "/public/images/destinations/cairo.jpg";
 
 type HeroImageObject = {
   image: StaticImageData;
@@ -16,12 +17,13 @@ type HeroImageObject = {
 
 const images: HeroImageObject[] = [
   { image: heroImage1, borderRadius: "20% 0 0 0", city: "Split", country: "Croatia" },
-  { image: heroImage2, borderRadius: "0 20% 0 0", city: "London", country: "England" },
-  { image: heroImage3, borderRadius: "0 0 0 20%", city: "Barcelona", country: "Spain" },
-  { image: heroImage4, borderRadius: "0 0 20% 0", city: "New York", country: "USA" },
+  { image: heroImage2, borderRadius: "0 20% 0 0", city: "NYC", country: "USA" },
+  { image: heroImage4, borderRadius: "0 0 0 20%", city: "Banff", country: "Canada" },
+  { image: heroImage3, borderRadius: "0 0 20% 0", city: "Cairo", country: "Egypt" },
 ];
 
 const HeroSection = () => (
+  
   <div className={styles.imageContainer}>
     {images.map((imageObj, index) => (
       <div key={index} className={styles.images}>

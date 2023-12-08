@@ -1,0 +1,93 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.categoriesContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 30px 0px 0px 0px;
+}
+
+.categoriesContainer .category{
+    background-color: var(--primary-dark-color);
+    color: var(--primary-light-color);
+    border-radius: 5vw;
+    padding: 5px 20px 5px 20px;
+    text-transform: uppercase;
+    font-size: 1vw;
+}
+
+.categoriesContainer .category:hover{
+    cursor: pointer;
+    background-color: var(--secondary-light-color);
+    color: var(--primary-dark-color);
+}
+
+.categoriesContainer .resetCategory {
+    background-color: var(--text-light-color);
+    color: var(--text-dark-color);
+    border-radius: 5vw;
+    padding: 5px 20px 5px 20px;
+    text-transform: uppercase;
+    font-size: 1vw;
+}
+
+.categoriesContainer .resetCategory:hover{
+    cursor: pointer;
+    background-color: var(--text-light-color);
+    color: var(--text-medium-color);
+}
+
+.destinationsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 25px;
+    height: fit-content;
+    padding: 30px;
+    column-gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.destinationsContainer .destinationCard {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*transition: transform 0.3s ease-in-out;*/
+}
+
+.destinationsContainer .destinationCard:hover{
+    transform: scale(1.05);
+    background-color: rgba(237, 237, 237, 0.635);
+    cursor: pointer;
+}
+
+.destinationsContainer .destinationCard > * {
+    padding: 3px;
+}
+
+.destinationsContainer .destinationCard .name{
+    font-size: 2vw;
+    font-weight: bolder;
+    color: var(--primary-darker-color);
+}
+
+.destinationsContainer .destinationCard .country{
+    color: var(--text-medium-color);
+}
+
+.destinationsContainer .destinationCard .destinationImage{
+    height: 15vw;
+    width: 30vw;
+    object-fit: cover;
+    padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .destinationsContainer{
+        grid-template-columns: 1fr;
+    }
+}

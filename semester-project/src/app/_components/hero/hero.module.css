@@ -21,17 +21,14 @@
 }
 
 h1.cityTitle {
-    position: absolute;
-    bottom: 50%;
-    left: 5%;
-    margin: 0;
-    padding: 20px; 
-    color: #fff; /* Adjust the background color and opacity as needed */
+    color: #fff;
     width: 100%;
     box-sizing: border-box;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 400;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.578);
 }
 
 .textContainer {
@@ -39,26 +36,26 @@ h1.cityTitle {
     bottom: 0;
     left: 0;
     width: 100%;
-    box-sizing: border-box;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 5px 10px 10px 10px;
 }
   
 .subtitleContainer {
     display: flex;
     align-items: center;
-    padding: 2%;
 }
   
 h2.countryTitle {
     margin: 0;
-    padding: 10px;
     color: #fff;
     box-sizing: border-box;
+    font-size: 15px;
 }
   
 .smallImage {
-    width: 50px; 
     height: auto;
-    margin-left: 10px; 
 }
 
 @media (max-width: 768px) {

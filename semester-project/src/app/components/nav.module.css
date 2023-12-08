@@ -12,7 +12,7 @@
 
 .navList {
     display: flex;
-    gap: 2rem; /* gap-8 (8 multiplied by 0.25rem, which is the default gap unit in Tailwind CSS) */
+    /*gap: 2rem;  gap-8 (8 multiplied by 0.25rem, which is the default gap unit in Tailwind CSS) */
     padding-right: 2%;
 }
 

@@ -34,15 +34,15 @@ const BlogSection = () => {
                         </span>
                         
                         <div className="absolute bottom-4 left-4 w-full flex items-center p-2">
-                        <div className="w-10 h-10 rounded-full mr-4" style={{
-                            backgroundImage: `url(${avatar1})`,  backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                        }}>
-                        </div> 
-                        <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest uppercase">Alex Park</span> 
-                        <span className="text-gray-100 mx-2  text-xs md:text-sm lg:text-base xl:text-lg tracking-widest">•</span>
-                        <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest">8/11/2023</span> 
+                          <div className="w-10 h-10 rounded-full mr-4" style={{
+                              backgroundImage: `url(${avatar1})`,  backgroundSize: 'cover',
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                          }}>
+                          </div> 
+                          <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest uppercase">Alex Park</span> 
+                          <span className="text-gray-100 mx-2  text-xs md:text-sm lg:text-base xl:text-lg tracking-widest">•</span>
+                          <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest">8/11/2023</span> 
                         </div>
                     </div>
                 </Link>
