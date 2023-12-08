@@ -105,7 +105,7 @@
 
     .categoriesContainer .category {
         height: fit-content;
-        width: 15vw;
+        width: fit-content;
         padding: 0.5vw 1vw;
         text-align: center;
         font-size: 3vw;
