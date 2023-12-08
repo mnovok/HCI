@@ -50,7 +50,7 @@
 /* Frame 2 : Discover*/
 
 .discoverFrame2 {
-    background-color: var(--primary-light-color);
+    background-color: #EDEDED;
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: fit-content;
@@ -77,6 +77,10 @@
 .discoverFrame2 .discover .discoverText {
     font-size: 2vw;
     font-weight: 600;
+}
+
+.discoverFrame2 .discover .btn {
+    margin-top: 15px;
 }
 
 .active {
@@ -124,9 +128,6 @@
         font-size: 3vw;
     }
 }
-
-
-/* Frame 3: Discover*/
 
 .Frame3 {
     background-color: var(--secundary-light-color);
