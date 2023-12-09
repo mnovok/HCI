@@ -1,6 +1,6 @@
 
 export interface TypeCategory {
-    label: "Asia" | "Africa" | "Australia" | "Europe" | "North America" | "South  America" | "Antarctica";
+    label: "Asia" | "Africa" | "Australia" | "Europe" | "North America" | "South America";
 }
 
 export interface TypeDestinationListItem {
@@ -30,10 +30,7 @@ export const categories: TypeCategory[] = [
         label: "North America",
     },
     {
-        label: "South  America",
-    },
-    {
-        label: "Antarctica",
+        label: "South America",
     },
 ];
 
@@ -91,5 +88,43 @@ export const destinations: TypeDestinationListItem[] = [
         borderRadius: "0 0 20% 0",
         description: "Cairo, the vibrant capital of Egypt, stands as a testament to the country's rich history and cultural heritage. Nestled along the banks of the Nile River, Cairo is a bustling metropolis where ancient wonders coexist with modern life. From the iconic pyramids to bustling bazaars, Cairo is a city that captivates the senses and offers a glimpse into Egypt's past and present.",
         heroImage: "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    }
+    },
+    {
+        name: "Kyoto",
+        id: 5,
+        country: "Japan",
+        categories: [
+        {
+            label: "Asia",
+        },
+        ],
+        description: "Kyoto, the cultural heart of Japan, is a city that effortlessly blends ancient traditions with modernity. Nestled in the Kansai region, Kyoto served as the imperial capital for more than a thousand years, leaving an indelible mark on the country's history and cultural identity. From serene temples and traditional tea houses to bustling markets and vibrant festivals, Kyoto offers a captivating journey through time.",
+        heroImage: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+        name: "Sydney",
+        id: 6,
+        country: "Australia",
+        categories: [
+        {
+            label: "Australia",
+        },
+        ],
+        description: "Sydney, the jewel of Australia's east coast, is a vibrant and cosmopolitan metropolis that effortlessly combines natural beauty with urban sophistication. Nestled around the iconic Sydney Harbour, this dynamic city is renowned for its striking landmarks, diverse culture, and outdoor lifestyle. From the iconic Sydney Opera House to the golden beaches and lush parks, Sydney offers a captivating blend of the modern and the traditional.",
+        heroImage: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    
+    },
+    {
+        name: "Rio de Janeiro ",
+        id: 7,
+        country: "Brazil",
+        categories: [
+        {
+            label: "South America",
+        },
+        ],
+        description: "Rio de Janeiro, a city pulsating with life and rhythm, stands as a global icon of passion, celebration, and natural beauty. Nestled between lush mountains and golden beaches, Rio captivates with its vibrant culture, samba beats, and iconic landmarks. From the famous Carnival to the towering Christ the Redeemer statue, Rio de Janeiro is a city that embraces diversity and exudes a unique energy.",
+        heroImage: "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?q=80&w=1852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    
+    },
 ]
