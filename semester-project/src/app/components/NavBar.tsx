@@ -30,7 +30,7 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                         <span
                             className={cn(baseClass, {
                             "bg-[#065E33] text-[#d9e3de] pointer-events-none":
-                                (path === pathName || (name === 'blogs' && pathName === '/blogs')),
+                                (path === pathName || (name === 'blogs' && pathName === '/blogs') || pathName.includes(`${path}/`)),
                             })}
                         >
                             {name === "signin" ? "Sign In" : name}

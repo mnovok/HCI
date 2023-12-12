@@ -5,6 +5,7 @@ import styles from './destionations.module.css';
 import { TypeCategory, TypeDestinationListItem, categories, destinations } from "./destinationsList";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
+import Image from "next/image";
 
 export interface Post {
     userId: number;
@@ -52,7 +53,8 @@ const DestinationsPage: React.FC = () => {
     <div className={styles.main}>
       <div className={styles.categoriesContainer}>
         {categories.map((category: TypeCategory) => (
-          <div className={styles.category} key={category?.label} onClick={() => setSearchParam("_category", category?.label as string)}>
+          <div className={`${styles.category} ${category?.label.toUpperCase() === categoryFilter.toUpperCase() ? styles.activeCategory : ''}`} 
+            key={category?.label} onClick={() => setSearchParam("_category", category?.label as string)}>
             {category?.label}
           </div>
         ))}
@@ -69,9 +71,12 @@ const DestinationsPage: React.FC = () => {
           ).map((destination: TypeDestinationListItem) => (
             <div key={destination.id} className={styles.destinationCard}>
               <Link href={`destinations/${destination.id}`}>
+                <div className={styles.imageContainer}>
+                  <Image src="/images/heart.png" alt="Heart" width={23} height={23} className={styles.heart}/>
+                  <img src={destination.heroImage} alt={destination.name} className={styles.destinationImage} />
+                </div>
                 <h2 className={styles.name}>{destination.name}</h2>
-                <p className={styles.country}>Country: {destination.country}</p>
-                <img src={destination.heroImage} alt={destination.name} className={styles.destinationImage} />
+                <p className={styles.country}>{destination.country}</p>
               </Link>
             </div>
         ))}

@@ -25,6 +25,11 @@
     color: var(--primary-dark-color);
 }
 
+.categoriesContainer .category.activeCategory {
+    background-color: var(--primary-light-color); 
+    color: var(--primary-dark-color); 
+  }
+
 .categoriesContainer .resetCategory {
     background-color: var(--text-light-color);
     color: var(--text-dark-color);
@@ -54,19 +59,16 @@
 .destinationsContainer .destinationCard {
     border: 1px solid #ddd;
     padding: 20px;
-    border-radius: 3px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /*transition: transform 0.3s ease-in-out;*/
+    transition: transform 0.3s ease-in-out;
+    position: relative;
 }
 
 .destinationsContainer .destinationCard:hover{
     transform: scale(1.05);
     background-color: rgba(237, 237, 237, 0.635);
     cursor: pointer;
-}
-
-.destinationsContainer .destinationCard > * {
-    padding: 3px;
 }
 
 .destinationsContainer .destinationCard .name{
@@ -79,11 +81,28 @@
     color: var(--text-medium-color);
 }
 
+.destinationsContainer .destinationCard .imageContainer{
+    position: relative;
+}
+
 .destinationsContainer .destinationCard .destinationImage{
     height: 15vw;
     width: 30vw;
     object-fit: cover;
-    padding-top: 10px;
+    border-radius: 15px;
+}
+
+.destinationsContainer .destinationCard .heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    color: black;
+    padding: 1vw;
+    border-radius: 46%;
+    width: 3vw;
+    height: 3vw;
+    margin: 2px;
 }
 
 @media (max-width: 768px) {
