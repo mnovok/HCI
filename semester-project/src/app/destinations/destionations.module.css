@@ -127,6 +127,10 @@
         font-size: 2.5vw;
     }
 
+    .categoriesContainer .resetCategory {
+        font-size: 2.5vw;
+    }
+
     /*
     .categoriesContainer .category {
         padding: 0.5vw 1vw;
