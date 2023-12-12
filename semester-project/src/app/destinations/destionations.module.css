@@ -163,4 +163,10 @@
         height: 20vw;
         width: 35vw;
     }
+
+    .destinationsContainer .destinationCard .heart {
+        padding: 1vw;
+        width: 5vw;
+        height: 5vw;
+    }
 }
