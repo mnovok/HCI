@@ -37,6 +37,12 @@ export default function SearchPage(){
         },
         [searchParams, pathname, router]
     );
+
+    const filteredDestinations = destinations.filter(
+        (destination: TypeDestinationListItem) =>
+          destination.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
+          destination.country.toLowerCase() === searchFilter.toLowerCase()
+      );
     
     return(
         <div className={styles.searchMain}>
@@ -55,22 +61,32 @@ export default function SearchPage(){
                 )}
             </div>
             <div className={styles.suggestionsContainer}>
-                {searchFilter !== "" && <span className={styles.suggestionsHeader}>Results:</span>}
-                <div className={styles.destinationsSuggestions}>
-                {searchFilter !== "" &&  destinations.filter((destination: TypeDestinationListItem) => destination.name.toLowerCase().includes(searchFilter.toLowerCase())
-                  ).map((destination: TypeDestinationListItem) => (
-                    <div key={destination.id} className={styles.destinationCard}>
-                    <Link href={`destinations/${destination.id}`}>
-                        <div className={styles.imageContainer}>
-                        <Image src="/images/heart2.png" alt="Heart" width={23} height={23} className={styles.heart}/>
-                        <img src={destination.heroImage} alt={destination.name} className={styles.destinationImage} />
+                {searchFilter === "" ? null : (
+                    filteredDestinations.length > 0 ? (
+                        <>
+                        <span className={styles.suggestionsHeader}>Results:</span>
+                        <div className={styles.destinationsSuggestions}>
+                        {filteredDestinations.map((destination: TypeDestinationListItem) => (
+                            <div key={destination.id} className={styles.destinationCard}>
+                            <Link href={`destinations/${destination.id}`}>
+                                <div className={styles.imageContainer}>
+                                <Image src="/images/heart2.png" alt="Heart" width={23} height={23} className={styles.heart}/>
+                                <img src={destination.heroImage} alt={destination.name} className={styles.destinationImage} />
+                                </div>
+                                <h2 className={styles.name}>{destination.name}</h2>
+                                <p className={styles.country}>{destination.country}</p>
+                            </Link>
+                            </div>
+                        ))}
                         </div>
-                        <h2 className={styles.name}>{destination.name}</h2>
-                        <p className={styles.country}>{destination.country}</p>
-                    </Link>
-                    </div>
-                  ))}
-                </div>
+                        </>
+                    ) : (
+                        <>
+                        <span className={styles.suggestionsHeader}>Results:</span>
+                        <p>No destinations/blogs found. Try searching something else.</p></>
+                    )
+                )}
+
             </div>
             <div className={styles.suggestionsContainer}>
                 <span className={styles.suggestionsHeader}>Destination suggestions:</span>
