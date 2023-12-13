@@ -20,8 +20,7 @@
     color: var(--primary-darker-color);
     text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.091);
     letter-spacing: 0.05rem;
-    padding: 0px 20px ;
-    text-transform: uppercase;
+    padding: 0px 20px;
 }
 
 .searchBarContainer .searchForm{
