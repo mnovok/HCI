@@ -41,7 +41,7 @@ export default function SearchPage(){
     return(
         <div className={styles.searchMain}>
             <div className={styles.searchBarContainer}>
-                <h1 className={styles.header1}>Search <i>destinations</i> or <i>blogs</i></h1>
+                <h1 className={styles.header1}>Search   <i>destinations</i>   or   <i>blogs</i></h1>
                 <form action="" className={styles.searchForm}>
                     <input type="text" className={styles.searchInput} placeholder="e.g. Split" name="search" />
                     <Image src="/images/search.png" alt="Location" width={20} height={20} className={styles.searchIcon} />
