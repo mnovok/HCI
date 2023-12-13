@@ -11,7 +11,6 @@
     gap: 30px;
     background-color: var(--text-light-color);
     padding: 80px 0px;
-    
 }
 
 .searchBarContainer .header1{
@@ -66,7 +65,6 @@
 
 .suggestionsHeader {
     width: fit-content;
-    font-size: larger;
     font-weight: 700;
     color: var(--primary-darker-color);
     font-size: 1.5vw;
@@ -129,4 +127,64 @@
     width: 3vw;
     height: 3vw;
     margin: 2px;
+}
+
+@media (max-width: 768px) {
+    .searchBarContainer .header1 {
+        font-size: 7vw;
+        text-align: center;
+    }
+
+    .searchBarContainer .searchForm .searchInput {
+        width: 50vw;
+    }
+
+    .reset {
+        border-radius: 10vw;
+        font-size: 3vw;
+    }
+
+    .suggestionsContainer {
+        row-gap: 7vw;
+        padding: 0px 20px;
+    }
+
+    .suggestionsHeader {
+        font-size: 4vw;
+    }
+
+    .destinationsSuggestions {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5vw;
+        row-gap: 5vw;
+        padding: 0px 10px;
+    }
+
+    .destinationCard {
+        padding: 2vw;
+    }
+
+    .destinationCard .name {
+        font-size: 3vw;
+        padding: 0px 3px;
+        margin-top: 3px;
+    }
+
+    .destinationCard .country {
+        font-size: 2.5vw;
+        padding-left: 3px;
+        margin-bottom: 3px;
+    }
+
+    .destinationCard .destinationImage {
+        border-radius: 10px;
+        height: 25vw;
+        width: 40vw;
+    }
+
+    .destinationCard .heart {
+        padding: 1vw;
+        width: 6vw;
+        height: 6vw;
+    }
 }

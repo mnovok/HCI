@@ -72,7 +72,7 @@ const DestinationsPage: React.FC = () => {
             <div key={destination.id} className={styles.destinationCard}>
               <Link href={`destinations/${destination.id}`}>
                 <div className={styles.imageContainer}>
-                  <Image src="/images/heart.png" alt="Heart" width={23} height={23} className={styles.heart}/>
+                  <Image src="/images/heart2.png" alt="Heart" width={23} height={23} className={styles.heart}/>
                   <img src={destination.heroImage} alt={destination.name} className={styles.destinationImage} />
                 </div>
                 <h2 className={styles.name}>{destination.name}</h2>
