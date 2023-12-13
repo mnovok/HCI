@@ -16,7 +16,7 @@ const pages: Record<string, `/${string}`> = {
   home: "/",
   destinations: "/destinations",
   blogs: "/blogs?_page=1&_limit=11",
-  guides: "/guides",
+  search: "/search",
   signin: "/signin",
 }; // ili "as const" ovdje
 

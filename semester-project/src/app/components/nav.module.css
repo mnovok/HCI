@@ -16,6 +16,24 @@
     padding-right: 2%;
 }
 
+.baseClass {
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: 1rem; 
+    padding: 1.25rem 1.25rem; 
+    color: #065E33;
+}
+
+.baseClass:hover {
+    background-color: #B3E0CA;
+}
+
+.activeTab {
+    background-color: #065E33;
+    color: #d9e3de;
+    pointer-events: none;
+}
+
 .tabs {
     text-transform: uppercase;
     font-family: 'DM Sans', sans-serif;

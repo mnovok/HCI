@@ -25,20 +25,16 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
             </Link>
             <ul className={styles.navList}>
                 {Object.entries(pages).map(([name, path]) => (
-                    <li key={name}>
+                    <li key={name} >
                         <Link href={path} className={styles.tabs}>
-                        <span
-                            className={cn(baseClass, {
-                            "bg-[#065E33] text-[#d9e3de] pointer-events-none":
-                                (path === pathName || (name === 'blogs' && pathName === '/blogs') || pathName.includes(`${path}/`)),
-                            })}
-                        >
+                        <span className={`${styles.baseClass} ${path === pathName || (name === 'blogs' && pathName === '/blogs') || pathName.includes(`${path}/`) ? styles.activeTab : ''}`}>
                             {name === "signin" ? "Sign In" : name}
                         </span>
                         </Link>
                     </li>
                 ))}
             </ul>
+            
             <div className={styles.menu}>
                 <ul>
                     <li className="text-[#065E35] font-semibold">MENU
