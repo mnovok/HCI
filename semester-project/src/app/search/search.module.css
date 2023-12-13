@@ -43,8 +43,8 @@
 }
 
 .reset {
-    background-color: var(--text-light-color);
-    color: var(--text-dark-color);
+    background-color: var(--primary-light-color);
+    color: var(--primary-dark-color);
     border-radius: 5vw;
     padding: 5px 20px 5px 20px;
     text-transform: uppercase;
@@ -53,8 +53,8 @@
 
 .reset:hover{
     cursor: pointer;
-    background-color: var(--text-light-color);
-    color: var(--text-medium-color);
+    background-color: var(--secondary-light-color);
+    color: var(--primary-darker-color);
 }
 
 

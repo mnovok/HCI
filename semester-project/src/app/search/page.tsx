@@ -44,7 +44,9 @@ export default function SearchPage(){
                 <h1 className={styles.header1}>Search   <i>destinations</i>   or   <i>blogs</i></h1>
                 <form action="" className={styles.searchForm}>
                     <input type="text" className={styles.searchInput} placeholder="e.g. Split" name="search" />
-                    <Image src="/images/search.png" alt="Location" width={20} height={20} className={styles.searchIcon} />
+                    <button type='submit'>
+                        <Image src="/images/search.png" alt="Location" width={20} height={20} className={styles.searchIcon} />
+                    </button>
                 </form>
                 {searchFilter !== "" && (
                     <div className={styles.reset} onClick={() => deleteSearchParam("search")}>
