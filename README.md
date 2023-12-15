@@ -1,6 +1,6 @@
 ﻿# Human Computer Interaction <!-- omit in toc -->
 
- [Travelling Web App](planvoyage.vercel.app)
+Travelling Web App deployed to [Vercel](https://planvoyage.vercel.app/)
 
 - [Project Structure](#project-structure)
 - [Class Projects](#class-projects)
