@@ -55,8 +55,8 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
             
         <div className={styles.menu}>
         <ul>
-          <li className="text-[#065E35] font-semibold" onClick={handleMenuClick}>
-            <Link href="#" className={styles.tabs}>
+          <li className="text-[#065E35] font-semibold" >
+            <Link href="#" className={styles.tabs} onClick={handleMenuClick}>
               MENU
             </Link>
             <ul className={cn(styles.dropdown, { [styles.showMobileMenu]: isMobileMenuOpen })}>

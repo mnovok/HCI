@@ -58,6 +58,14 @@
     color: #065E33;
   }
 
+.showMobileMenu {
+    display: block; 
+}
+
+.dropdown {
+    display: none; 
+  }
+
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     .navList {
