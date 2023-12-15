@@ -49,13 +49,13 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                 ))}
             </ul>
             
-            <div className={styles.menu}>
+        <div className={styles.menu}>
         <ul>
-          <li className="text-[#065E35] font-semibold">
+          <li className="text-[#065E35] font-semibold" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             MENU
-           <ul className={cn(styles.dropdown, { [styles.showMobileMenu]: isMobileMenuOpen })}>
+            <ul className={cn(styles.dropdown, { [styles.showMobileMenu]: isMobileMenuOpen })}>
               {Object.entries(pages).map(([name, path]) => (
-                <li key={name}>
+                <li key={name} onClick={handleLinkClick}> 
                   <Link href={path} className={styles.tabs}>
                     <span
                       className={`${
@@ -64,7 +64,7 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                         path === pathName ||
                         (name === "blogs" && pathName === "/blogs") ||
                         pathName.includes(`${path}/`)
-                          ? `${styles.activeDropdownTab} ${styles.activeDropdownTab}` 
+                          ? `${styles.activeDropdownTab} ${styles.activeDropdownTab}`
                           : ""
                       }`}
                     >

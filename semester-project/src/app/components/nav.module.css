@@ -55,6 +55,7 @@
 
 .activeDropdownTab {
     font-weight: bold;
+    color: #065E33;
   }
 
 /* Media query for smaller screens */
