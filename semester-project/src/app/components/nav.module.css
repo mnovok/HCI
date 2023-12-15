@@ -64,7 +64,8 @@
 
 .dropdown {
     display: none; 
-  }
+    visibility: hidden;
+}
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
@@ -120,5 +121,16 @@
         padding-left: 10px;
         border-left: 2px solid var(--primary-dark-color);
     }
+
+    .showMobileMenu .dropdown {
+        display: block;
+        visibility: visible;
+      }
+    
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+      }
 
 }

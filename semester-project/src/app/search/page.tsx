@@ -123,9 +123,7 @@ export default function SearchPage(){
             </div>
             <div className={styles.suggestionsContainer}>
                 <span className={styles.suggestionsHeader}>Blog suggestions:</span>
-                <div className={styles.blogsSuggestions}>
-
-                </div>
+               
             </div>
         </div>
     )

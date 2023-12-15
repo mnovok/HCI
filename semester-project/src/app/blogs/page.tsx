@@ -1,6 +1,7 @@
 import Link from "next/link";
 import clsx from 'clsx';
 import styles from './blog.module.css';
+import NotFound from "../_components/notFound404/NotFound404";
 const imageUrl1 = 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const imageUrl2 = 'https://plus.unsplash.com/premium_photo-1663054480506-583f20275a34?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';  
 const imageUrl3 = 'https://plus.unsplash.com/premium_photo-1680102981920-cbdc911b7556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -59,61 +60,23 @@ export default async function Blog({
     <div className={styles.main}>
         <div className={styles.headerContainer}>
           <h1>Blogs</h1>
-          <h2>Read about travel experiences of other users.</h2>
-
-        {_limit && _page && (
+          <h2>Read about travel experiences of other users.</h2>  
           <div className="flex items-baseline gap-8 pb-10">
-            <div>
-              Page {page} of {totalPages}
-            </div>
             <div className="flex gap-4">
               <Link
                 href={{
-                  pathname: "/blogs",
-                  query: { _page: 1, _limit: pageSize },
-                }}
-                className="rounded-3xl border  bg-[#065E35] px-3 py-1 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
-              >
-                First
-              </Link>
-              <Link
-                href={{
-                  pathname: "/blogs",
-                  query: { _page: page > 1 ? page - 1 : 1, _limit: pageSize },
+                  pathname: "/post",
                 }}
                 className={clsx(
-                  "rounded-3xl border bg-[#065E35] px-3 py-1 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
-                  page === 1 && "pointer-events-none opacity-50"
-                )}
-              >
-                Previous
-              </Link>
-              <Link
-                href={{
-                  pathname: "/blogs",
-                  query: { _page: page + 1, _limit: pageSize },
-                }}
-                className={clsx(
-                  "rounded-3xl border bg-[#065E35] px-3 py-1 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
-                  page === totalPages && "pointer-events-none opacity-50"
-                )}
-              >
-                Next
-              </Link>
-              <Link
-                href={{
-                  pathname: "/blogs",
-                  query: { _page: totalPages, _limit: pageSize },
-                }}
-                className="rounded-3xl border bg-[#065E35] px-3 py-1 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
-              >
-                Last
+                  "rounded-3xl border bg-[#065E35] px-12 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33] text-xl",
+                )}>
+                POST
               </Link>
             </div>
           </div>
-        )}
-      </div>
+        </div>
 
+      
         {/* <ul className="flex flex-col gap-8">
           {posts.map((post) => (
             <li key={post.id}>
@@ -125,12 +88,12 @@ export default async function Blog({
             </li>
           ))}
         </ul> */}
-      <div className="grid grid-cols-3 gap-8 py-8 px-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24">
         {posts.map((post, index) => (
           <div key={post.id} className={`relative ${index === 0 ? 'col-span-full' : 'col-span-2 md:col-span-1'}`}>
             <Link href={`blogs/${post.id}`}>
               <div
-                className={`${styles.blogCardItem} p-4 border border-gray-300 rounded h-80 relative hover:opacity-80`}
+                className={`${styles.blogCardItem} h-80 md:h-96 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}
                 style={{
                   backgroundImage: index === 0 ? `url(${imageUrl1})` : `url(${index % 2 === 0 ? imageUrl2 : imageUrl3})`,
                   backgroundSize: 'cover',
@@ -157,6 +120,61 @@ export default async function Blog({
           </div>
         ))}
       </div>
+
+    <div className="flex flex-col items-center">
+      <div className="mb-4 md:mb-4 text-center md:text-left text-lg">
+          Page {page} of {totalPages}
+      </div>
+      {_limit && _page && (
+          <div className="flex items-baseline gap-8 pb-10">
+            <div className="flex gap-4">
+              <Link
+                href={{
+                  pathname: "/blogs",
+                  query: { _page: 1, _limit: pageSize },
+                }}
+                className="rounded-3xl border  bg-[#065E35] px-10 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
+              >
+                First
+              </Link>
+              <Link
+                href={{
+                  pathname: "/blogs",
+                  query: { _page: page > 1 ? page - 1 : 1, _limit: pageSize },
+                }}
+                className={clsx(
+                  "rounded-3xl border bg-[#065E35] px-6 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                  page === 1 && "pointer-events-none opacity-50"
+                )}
+              >
+                Previous
+              </Link>
+              <Link
+                href={{
+                  pathname: "/blogs",
+                  query: { _page: page + 1, _limit: pageSize },
+                }}
+                className={clsx(
+                  "rounded-3xl border bg-[#065E35] px-10 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                  page === totalPages && "pointer-events-none opacity-50"
+                )}
+              >
+                Next
+              </Link>
+              <Link
+                href={{
+                  pathname: "/blogs",
+                  query: { _page: totalPages, _limit: pageSize },
+                }}
+                className="rounded-3xl border bg-[#065E35] px-10 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
+              >
+                Last
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 }

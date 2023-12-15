@@ -1,9 +1,9 @@
-import NotFound from "../_components/notFound404/NotFound404";
+import NotFound404 from "../_components/notFound404/NotFound404";
 
 function SigninPage() {
     return(
         <>
-            <NotFound />
+            <NotFound404 />
         </>
     );
 }

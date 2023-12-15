@@ -1,0 +1,237 @@
+.title {
+    font-size: 2vw;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--primary-darker-color);
+    width: fit-content;
+    letter-spacing: 0.05rem;
+    padding: 2.5rem;
+    margin: auto;
+    max-width: 80rem;
+    flex-direction: column;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--text-light-color);
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+}
+
+.cardInfo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding-bottom: 2%;
+    color: #FB5957;
+}
+
+.cardInfo:hover {
+    color: #065E35;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding-bottom: 2%;
+    color: var(--primary-darker-color);
+  }
+  
+.date {
+    margin-left: 10px; 
+}
+
+.contentContainer {
+    max-width: 75vw; 
+    margin: 0 auto; 
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.postImage {
+    height: 25vw;
+    width: 70vw;
+    object-fit: cover;
+}
+
+.aboutContainer {
+    max-width: 75vw; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 20px; 
+    display: flex;
+    align-items: center;
+    max-width: 94%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+  
+.avatar {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin-right: 25px; 
+}
+  
+.avatar img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+}
+
+.aboutInfo p {
+    font-size: large;
+}
+
+.commentContainer {
+    padding: 20px;
+    max-width: 94%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    margin-top: 2%;
+}
+  
+.commentContainer input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 2%;
+}
+
+  
+.commentContainer button {
+    background-color: var(--primary-dark-color);
+    color: var(--primary-light-color);
+    border-radius: 5vw;
+    padding: 10px 30px 10px 30px;
+    text-transform: uppercase;
+    font-size: 1vw;
+}
+  
+.commentContainer button:hover {
+    background-color: var(--secondary-light-color);
+    color: var(--primary-dark-color);
+    cursor: pointer;
+}
+  
+.comments {
+    margin-top: 20px;
+}
+  
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+  
+.comment strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.commentsContainer {
+    max-width: 75vw;  
+    padding: 20px; 
+    display: flex;
+    align-items: center;
+    max-width: 94%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+
+.commentAvatar {
+    width: 70px; 
+    height: 70px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin-right: 25px; 
+}
+  
+.commentAvatar img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 50%;
+}
+
+.cardInfoComment {
+    font-size: medium;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #FB5957
+}
+
+.cardInfoComment:hover {
+    color: #065E35;
+}
+
+.cardInfoSuggested {
+    font-size: small;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.avatarSuggested {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin-right: 25px; 
+    position: relative;
+    z-index: 2;
+}
+
+.cardTextSuggested {
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.blogCardItemSuggested::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Adjust the opacity as needed */
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 4vw;
+    }
+
+    .avatar {
+        width: 100px; 
+        height: 100px;
+    }
+
+    .commentAvatar{
+        width: 50px; 
+        height: 50px;
+    }
+}

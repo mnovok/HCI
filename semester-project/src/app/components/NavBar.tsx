@@ -19,15 +19,13 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
     const pathName = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const handleLinkClick = () => {
-        if (isMobileMenuOpen) {
-          setIsMobileMenuOpen(false);
-        }
-      };
-
-      const handleMenuClick = () => {
+    const handleMenuClick = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
       };
+      
+      const handleLinkClick = () => {
+        setIsMobileMenuOpen(false); 
+    };
 
     return (
         <nav className={styles.navContainer}>
@@ -43,7 +41,7 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                             } 
                             ${
                                 path === pathName 
-                                || (name === 'blogs' && pathName === '/blogs') 
+                                || (name === 'blogs' && pathName.startsWith('/blogs')) 
                                 || pathName.includes(`${path}/`) 
                                 ? styles.activeTab : ''}`}>
                             {name === "signin" ? "Sign In" : name}
@@ -53,36 +51,36 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                 ))}
             </ul>
             
-        <div className={styles.menu}>
-        <ul>
-          <li className="text-[#065E35] font-semibold" >
-            <Link href="#" className={styles.tabs} onClick={handleMenuClick}>
-              MENU
-            </Link>
-            <ul className={cn(styles.dropdown, { [styles.showMobileMenu]: isMobileMenuOpen })}>
-              {Object.entries(pages).map(([name, path]) => (
-                <li key={name} onClick={handleLinkClick}>
-                  <Link href={path} className={styles.tabs}>
-                    <span
-                      className={`${
-                        styles.baseClass2
-                      } ${
-                        path === pathName ||
-                        (name === "blogs" && pathName === "/blogs") ||
-                        pathName.includes(`${path}/`)
-                          ? `${styles.activeDropdownTab} ${styles.activeDropdownTab}`
-                          : ""
-                      }`}
-                    >
-                      {name === "signin" ? "Sign In" : name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-        </ul>
-      </div>
+            <div className={styles.menu}>
+                <ul>
+                    <li className="text-[#065E35] font-semibold">
+                    <Link href="#" className={styles.tabs} onClick={handleMenuClick}>
+                        MENU
+                    </Link>
+                    <ul className={cn(styles.dropdown, { [styles.showMobileMenu]: isMobileMenuOpen })}>
+                        {Object.entries(pages).map(([name, path]) => (
+                        <li key={name} onClick={handleLinkClick}>
+                            <Link href={path} className={styles.tabs}>
+                            <span
+                                className={`${
+                                styles.baseClass2
+                                } ${
+                                path === pathName ||
+                                (name === "blogs" && pathName.startsWith('/blogs')) ||
+                                pathName.includes(`${path}/`)
+                                    ? `${styles.activeDropdownTab} ${styles.activeDropdownTab}`
+                                    : ""
+                                }`}
+                            >
+                                {name === "signin" ? "Sign In" : name}
+                            </span>
+                            </Link>
+                        </li>
+                        ))}
+                    </ul>
+                    </li>
+                </ul>
+            </div>
 
         </nav>
   );

@@ -2,7 +2,7 @@ import styles from './notfound404.module.css';
 import Link from "next/link";
 import Image from 'next/image';
 
-const NotFound = () => {
+const NotFound404 = () => {
     return (
         <div className={styles.main}>
             <div className={styles.textContainer}>
@@ -20,4 +20,4 @@ const NotFound = () => {
     
 }
 
-export default NotFound;
+export default NotFound404;

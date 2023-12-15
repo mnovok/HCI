@@ -28,7 +28,7 @@ const HelpSection: FC<SVGProps<SVGSVGElement>> = ({
                 <div className={styles.title}>Explore</div>
                 <div className={styles.text}>Learn more about different destinations</div>
             </Link>
-            <Link href={`/blog`} className={styles.group}>
+            <Link href={`/blogs?_page=1&_limit=7`} className={styles.group}>
                 <div className={styles.icon}>
                     <div className={styles.centeredImage}>
                         <Image src="/images/connect.png" alt="Icon" width={100} height={100} />
