@@ -1,5 +1,6 @@
 import Link from "next/link";
 import clsx from 'clsx';
+import styles from './blog.module.css';
 const imageUrl1 = 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const imageUrl2 = 'https://plus.unsplash.com/premium_photo-1663054480506-583f20275a34?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';  
 const imageUrl3 = 'https://plus.unsplash.com/premium_photo-1680102981920-cbdc911b7556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -55,10 +56,10 @@ export default async function Blog({
   });
 
   return (
-    <div style={{ backgroundColor: '#d9e3de' }}>
-      <main className="flex flex-col items-center min-h-screen max-w-5xl m-auto p-1" style={{ marginTop: '64px' }}>
-        <h1 className="text-3xl font-bold px-10 uppercase text-[#04371E]">Blogs</h1>
-          <h2 className="text-xl font-semibold p-10 text-[#04371E]" >Read about travel experiences of other users.</h2>
+    <div className={styles.main}>
+        <div className={styles.headerContainer}>
+          <h1>Blogs</h1>
+          <h2>Read about travel experiences of other users.</h2>
 
         {_limit && _page && (
           <div className="flex items-baseline gap-8 pb-10">
@@ -111,6 +112,7 @@ export default async function Blog({
             </div>
           </div>
         )}
+      </div>
 
         {/* <ul className="flex flex-col gap-8">
           {posts.map((post) => (
@@ -123,12 +125,12 @@ export default async function Blog({
             </li>
           ))}
         </ul> */}
-      <div className="grid grid-cols-2 gap-8 py-8">
+      <div className="grid grid-cols-3 gap-8 py-8 px-24">
         {posts.map((post, index) => (
           <div key={post.id} className={`relative ${index === 0 ? 'col-span-full' : 'col-span-2 md:col-span-1'}`}>
             <Link href={`blogs/${post.id}`}>
               <div
-                className="p-4 border border-gray-300 rounded h-64 relative hover:opacity-80"
+                className={`${styles.blogCardItem} p-4 border border-gray-300 rounded h-80 relative hover:opacity-80`}
                 style={{
                   backgroundImage: index === 0 ? `url(${imageUrl1})` : `url(${index % 2 === 0 ? imageUrl2 : imageUrl3})`,
                   backgroundSize: 'cover',
@@ -136,27 +138,25 @@ export default async function Blog({
                   backgroundRepeat: 'no-repeat',
                 }}
               >
-                <span className="text-2xl md:text-xl lg:text-2xl xl:text-3xl text-gray-100 drop-shadow-2xl font-semibold capitalize">
+                <span className={`${styles.cardText} text-2xl md:text-xl lg:text-2xl xl:text-3xl font-semibold capitalize`}>
                   Post {post.title}
                 </span>
                 
-                <div className="absolute bottom-4 left-4 w-full flex items-center p-2">
-                  <div className="w-10 h-10 rounded-full mr-4" style={{
+                <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
+                  <div className={`${styles.avatar} w-10 h-10 rounded-full mr-4`} 
+                   style={{
                     backgroundImage: `url(${avatar})`,  backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                   }}>
                   </div> 
-                  <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest uppercase">Alex Park</span> 
-                  <span className="text-gray-100 mx-2  text-xs md:text-sm lg:text-base xl:text-lg tracking-widest">•</span>
-                  <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest">8/11/2023</span> 
+                    <p className={styles.cardInfo}>John Doe • 8/11/2023</p>
                 </div>
               </div>
             </Link>
           </div>
         ))}
       </div>
-      </main>
     </div>
   );
 }

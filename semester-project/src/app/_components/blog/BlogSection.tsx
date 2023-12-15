@@ -17,77 +17,67 @@ const BlogSection = () => {
                 to inspire and connect.
             </h2>
         </div>
+
         <div className={styles.blogsContainer}>
-            <div>
-                <Link href={`blogs`}>
+
+        <div className={styles.blogCard}>
+                <Link href={`blogs/1`}>
                     <div
-                        className="p-4 border border-gray-300 rounded h-64 relative hover:opacity-80"
+                        className={`${styles.blogCardItem} p-4 border border-gray-300 rounded h-80 relative hover:opacity-80`}
                         style={{
-                        backgroundImage: `url(${imageUrl1})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
+                            backgroundImage: `url(${imageUrl1})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
                         }}
                     >
-                        <span className="text-2xl md:text-xl lg:text-2xl xl:text-3xl text-gray-100 drop-shadow-2xl font-semibold capitalize">
+                        <span className={`${styles.cardText} text-2xl md:text-xl lg:text-2xl xl:text-3xl font-semibold capitalize`}>
                             How camping alone cleared my mind
                         </span>
                         
-                        <div className="absolute bottom-4 left-4 w-full flex items-center p-2">
-                          <div className="w-10 h-10 rounded-full mr-4" style={{
-                              backgroundImage: `url(${avatar1})`,  backgroundSize: 'cover',
-                              backgroundPosition: 'center',
-                              backgroundRepeat: 'no-repeat',
-                          }}>
-                          </div> 
-                          <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest uppercase">Alex Park</span> 
-                          <span className="text-gray-100 mx-2  text-xs md:text-sm lg:text-base xl:text-lg tracking-widest">•</span>
-                          <span className="text-gray-100 text-xs md:text-sm lg:text-base xl:text-lg font-medium tracking-widest">8/11/2023</span> 
+                        <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
+                            <div className={`${styles.avatar} w-10 h-10 rounded-full mr-4`} 
+                                 style={{ backgroundImage: `url(${avatar1})`,   
+                                          backgroundSize: 'cover',
+                                          backgroundPosition: 'center',
+                                          backgroundRepeat: 'no-repeat',  }}>
+                            </div>                             
+                            <p className={styles.cardInfo}>Alex Park • 8/11/2023</p>
                         </div>
                     </div>
                 </Link>
             </div>
 
-            <div>
-          <Link href={`blogs`}>
-            <div
-              className="p-4 border border-gray-300 rounded h-64 relative hover:opacity-80"
-              style={{
-                backgroundImage: `url(${imageUrl2})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
-            >
-              <span className="text-2xl md:text-xl lg:text-2xl xl:text-3xl text-gray-100 drop-shadow-2xl font-semibold capitalize">
-                Travelling to Italy with family
-              </span>
-
-              <div className="absolute bottom-4 left-4 w-full flex items-center p-2">
-                <div
-                  className="w-10 h-10 rounded-full mr-4"
-                  style={{
-                    backgroundImage: `url(${avatar2})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                  }}
-                ></div>
-                <span className="text-gray-100 text-xs md:text-xs lg:text-base xl:text-lg font-medium tracking-widest uppercase">
-                  John Doe
-                </span>
-                <span className="text-gray-100 mx-2 text-xs md:text-xs lg:text-base xl:text-lg tracking-widest">
-                  •
-                </span>
-                <span className="text-gray-100 text-xs md:text-xs lg:text-base xl:text-lg font-medium tracking-widest">
-                  8/12/2023
-                </span>
-              </div>
+            <div className={styles.blogCard}>
+                <Link href={`blogs/3`}>
+                    <div
+                        className={`${styles.blogCardItem} p-4 border border-gray-300 rounded h-80 relative hover:opacity-80`}
+                        style={{
+                            backgroundImage: `url(${imageUrl2})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                    >
+                        <span className={`${styles.cardText} text-2xl md:text-xl lg:text-2xl xl:text-3xl font-semibold capitalize`}>
+                            How camping alone cleared my mind
+                        </span>
+                        
+                        <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
+                            <div className={`${styles.avatar} w-10 h-10 rounded-full mr-4`} 
+                                 style={{ backgroundImage: `url(${avatar2})`,   
+                                          backgroundSize: 'cover',
+                                          backgroundPosition: 'center',
+                                          backgroundRepeat: 'no-repeat',  }}>
+                            </div>                             
+                            <p className={styles.cardInfo}>Toni Marrone • 8/11/2023</p>
+                        </div>
+                    </div>
+                </Link>
             </div>
-          </Link>
-        </div>            
+
         </div>
-        <Link href="/blogs?_page=1&_limit=11" className={styles.btn}>Load more</Link>
+        <Link href="/blogs?_page=1&_limit=7" className={styles.btn}>Load more</Link>
     </div>
  )
 };

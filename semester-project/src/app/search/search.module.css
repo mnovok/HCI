@@ -69,7 +69,7 @@
     font-weight: 700;
     color: var(--primary-darker-color);
     font-size: 1.5vw;
-   
+    margin-left: 2%;
 }
 
 .destinationsSuggestions {
@@ -128,6 +128,11 @@
     width: 3vw;
     height: 3vw;
     margin: 2px;
+}
+
+.failedSearchText {
+    font-size: larger;
+    margin-left: 2%;
 }
 
 @media (max-width: 768px) {

@@ -13,7 +13,7 @@
 .navList {
     display: flex;
     /*gap: 2rem;  gap-8 (8 multiplied by 0.25rem, which is the default gap unit in Tailwind CSS) */
-    padding-right: 2%;
+    padding-right: 0%
 }
 
 .baseClass {
@@ -53,6 +53,9 @@
     display: none;
 }
 
+.activeDropdownTab {
+    font-weight: bold;
+  }
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {

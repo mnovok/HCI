@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const pages: Record<string, `/${string}`> = {
   home: "/",
   destinations: "/destinations",
-  blogs: "/blogs?_page=1&_limit=11",
+  blogs: "/blogs?_page=1&_limit=7",
   search: "/search",
   signin: "/signin",
 }; // ili "as const" ovdje

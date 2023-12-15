@@ -54,6 +54,11 @@
   max-height: 80%;
 }
 
+.icon:hover {
+  transform: scale(1.1); 
+  transition: transform 0.3s ease; 
+}
+
 @media (max-width: 768px) {
   .help {
     display: grid;

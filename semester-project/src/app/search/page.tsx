@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { TypeDestinationListItem, destinations } from '../destinations/destinationsList';
 import styles from './search.module.css';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect , ChangeEvent} from 'react';
 
 export default function SearchPage(){
     const searchParams = useSearchParams();
-    const searchFilter: string = searchParams.get("search") || "";
+    const [searchFilter, setSearchFilter] = useState('');
     const router = useRouter();
     const pathname = usePathname();
 
@@ -19,13 +19,24 @@ export default function SearchPage(){
           const params = new URLSearchParams(currentParams);
     
           params.set(name, value);
-          // If search params are still the same there's no need to do anything
+          // If search params are still the, same there's no need to do anything
           if (currentParams === params.toString()) return;
     
           router.replace(pathname + "?" + params.toString(), { scroll: false });
         },
         [searchParams, pathname, router]
     );
+
+    useEffect(() => {
+        const initialSearch = searchParams.get('search') || '';
+        setSearchFilter(initialSearch);
+    }, [searchParams]);
+
+    const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
+        const updatedValue = e.target.value;
+        setSearchFilter(updatedValue);
+        setSearchParam('search', updatedValue);
+    };
 
     const deleteSearchParam = useCallback(
         (name: string) => {
@@ -49,7 +60,12 @@ export default function SearchPage(){
             <div className={styles.searchBarContainer}>
                 <h1 className={styles.header1}>Search   <i>destinations</i>   or   <i>blogs</i></h1>
                 <form action="" className={styles.searchForm}>
-                    <input type="text" className={styles.searchInput} placeholder="e.g. Split" name="search" />
+                    <input type="text"  
+                           autoFocus 
+                           className={styles.searchInput} 
+                           placeholder="e.g. Split" 
+                           name="search"
+                           onChange={handleSearchInput} />
                     <button type='submit'>
                         <Image src="/images/search.png" alt="Location" width={20} height={20} className={styles.searchIcon} />
                     </button>
@@ -83,7 +99,7 @@ export default function SearchPage(){
                     ) : (
                         <>
                         <span className={styles.suggestionsHeader}>Results:</span>
-                        <p>No destinations/blogs found. Try searching something else.</p></>
+                        <p className={styles.failedSearchText}>No destinations/blogs found. Try searching something else.</p></>
                     )
                 )}
 
