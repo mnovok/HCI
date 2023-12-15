@@ -60,7 +60,7 @@ const BlogSection = () => {
                         }}
                     >
                         <span className={`${styles.cardText} text-2xl md:text-xl lg:text-2xl xl:text-3xl font-semibold capitalize`}>
-                            How camping alone cleared my mind
+                            Travelling to Italy with family
                         </span>
                         
                         <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
