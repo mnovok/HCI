@@ -1,7 +1,7 @@
 import Link from "next/link";
 import clsx from 'clsx';
 import styles from './blog.module.css';
-import NotFound from "../_components/notFound404/NotFound404";
+import { useState } from "react";
 const imageUrl1 = 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const imageUrl2 = 'https://plus.unsplash.com/premium_photo-1663054480506-583f20275a34?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';  
 const imageUrl3 = 'https://plus.unsplash.com/premium_photo-1680102981920-cbdc911b7556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -40,6 +40,8 @@ const getTotalPosts = async (): Promise<number> => {
   // get x-total-count header
   return parseInt(response.headers.get("x-total-count") || "1", 10);
 };
+
+
 
 export default async function Blog({
   searchParams,
