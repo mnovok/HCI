@@ -25,6 +25,10 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
         }
       };
 
+      const handleMenuClick = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+      };
+
     return (
         <nav className={styles.navContainer}>
             <Link href={`/`}>
@@ -49,13 +53,13 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                 ))}
             </ul>
             
-        <div className={styles.menu}>
+            <div className={styles.menu}>
         <ul>
-          <li className="text-[#065E35] font-semibold" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <li className="text-[#065E35] font-semibold" onClick={handleMenuClick}>
             MENU
             <ul className={cn(styles.dropdown, { [styles.showMobileMenu]: isMobileMenuOpen })}>
               {Object.entries(pages).map(([name, path]) => (
-                <li key={name} onClick={handleLinkClick}> 
+                <li key={name} onClick={handleLinkClick}>
                   <Link href={path} className={styles.tabs}>
                     <span
                       className={`${
