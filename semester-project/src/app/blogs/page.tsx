@@ -178,7 +178,6 @@ export default async function Blog({
           </div>
         )}
       </div>
-
     </div>
   );
 }
