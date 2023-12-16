@@ -1,4 +1,4 @@
-import { TypeBlogListItem } from "@/app/(contentful)/types/TypeBlog";
+import { TypeBlogListItem } from "../src/app/(contentful)/types/TypeBlog";
 
 const gqlAllBlogsQuery = `
   query blogPostsList {
@@ -83,7 +83,7 @@ interface BlogItem {
         avatar: item.avatar.url,
       }));
   
-    console.log("Products fetched:", blogs);
+     console.log("Products fetched:", blogs);
       return blogs;
     } catch (error) {
       console.error("Error fetching products:", error);
