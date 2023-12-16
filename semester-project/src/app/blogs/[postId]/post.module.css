@@ -162,6 +162,8 @@
     border-radius: 50%; 
     overflow: hidden; 
     margin-right: 25px; 
+    max-width: 15vw; 
+    max-height: 15vw;
 }
   
 .commentAvatar img {
@@ -233,5 +235,28 @@
     .commentAvatar{
         width: 50px; 
         height: 50px;
+        max-width: 10vw;
+        max-height: 10vw;
+    }
+
+    .userInfo, .cardInfo{
+        font-size: 0.8rem;
+    }
+
+    .commentContainer button p{
+        font-size: 1rem;
+    }
+
+    .aboutInfo p{
+        font-size: 0.7rem;
+    }
+
+    .aboutContainer .avatar{
+        width: 15vw; 
+        height: 15vw;
+    }
+
+    .cardInfoComment {
+        font-size: 0.8rem;
     }
 }

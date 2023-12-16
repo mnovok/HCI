@@ -106,7 +106,7 @@ export default async function BlogPost({ params }: { params: Params }) {
         </div>
         </div>
         
-        <h1 className="flex justify-center text-3xl py-4">Suggested blogs:</h1>
+        <h1 className="flex justify-center text-3xl py-4 text-[#04371E]">Suggested blogs:</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24 py-4">
           {suggestedPosts.map((suggestedPost, index) => (
@@ -142,7 +142,6 @@ export default async function BlogPost({ params }: { params: Params }) {
         ))}
       </div>
 
-
       
         <div className={styles.commentContainer}>
           <div>
@@ -152,7 +151,7 @@ export default async function BlogPost({ params }: { params: Params }) {
               className={styles.commentInput}
             />
           <Link href={'/comment'}>  
-            <button>Add Comment</button>
+            <button><p>Add Comment</p></button>
           </Link>      
           </div>
         </div>
