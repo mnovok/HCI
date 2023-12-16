@@ -1,34 +1,34 @@
 import Link from "next/link";
 import clsx from 'clsx';
 import styles from './blog.module.css';
-import { useState } from "react";
-const imageUrl1 = 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-const imageUrl2 = 'https://plus.unsplash.com/premium_photo-1663054480506-583f20275a34?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';  
-const imageUrl3 = 'https://plus.unsplash.com/premium_photo-1680102981920-cbdc911b7556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-const avatar = 'https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-
-export interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+import contentfulService from "../../../lib/contentfulClient";
+import { TypeBlogListItem } from "../(contentful)/types/TypeBlog";
 
 interface Pagination {
   limit: number;
   page: number;
 }
 
-const BASE_API_URL = "https://jsonplaceholder.typicode.com";
+interface BlogItem {
+    id: string;
+    title: string;
+    author: string;
+    content: string;
+    thumbnail: string;
+    avatar: string;
+}
+
+const BASE_API_URL = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
 const getPosts = async (
   pagination: Pagination = {
-    limit: 9999,
+    limit: 6,
     page: 1,
   }
-): Promise<Post[]> => {
+): Promise<BlogItem[]> => {
+  const skip = (pagination.page - 1) * pagination.limit;
   const data = await fetch(
-    `${BASE_API_URL}/posts?_limit=${pagination.limit}&_page=${pagination.page}`
+    `${BASE_API_URL}/posts?limit=${pagination.limit}&skip=${skip}`
   );
   return data.json();
 };
@@ -41,7 +41,17 @@ const getTotalPosts = async (): Promise<number> => {
   return parseInt(response.headers.get("x-total-count") || "1", 10);
 };
 
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; 
+  const year = date.getFullYear();
 
+  const formattedDay = String(day).padStart(2, '0');
+  const formattedMonth = String(month).padStart(2, '0');
+
+  return `${formattedDay}/${formattedMonth}/${year}`;
+}
 
 export default async function Blog({
   searchParams,
@@ -52,6 +62,8 @@ export default async function Blog({
   const [pageSize, page] = [_limit, _page].map(Number);
   const totalPosts = await getTotalPosts();
   const totalPages = Math.ceil(totalPosts / pageSize);
+  const blogs = await contentfulService.getAllBlogs();
+  const slicedBlogs = blogs.slice((page - 1) * pageSize, page * pageSize);
 
   const posts = await getPosts({
     limit: pageSize,
@@ -92,31 +104,31 @@ export default async function Blog({
         </ul> */}
 
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24">
-        {posts.map((post, index) => (
-          <div key={post.id} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
-            <Link href={`blogs/${post.id}`}>
+        {slicedBlogs.map((blog) => (
+          <div key={blog.datePosted} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
+            <Link href={`blogs/${blog.id}`}>
               <div
                 className={`${styles.blogCardItem} h-80 md:h-64 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}
                 style={{
-                  backgroundImage: index === 0 ? `url(${imageUrl1})` : `url(${index % 2 === 0 ? imageUrl2 : imageUrl3})`,
+                  backgroundImage: `url(${blog.thumbnail})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                 }}
               >
                 <span className={`${styles.cardText} text-2xl md:text-xl lg:text-2xl xl:text-3xl font-semibold capitalize`}>
-                  Post {post.title}
+                  {blog.title}
                 </span>
                 
                 <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
                   <div className={`${styles.avatar} w-10 h-10 rounded-full mr-4`} 
                    style={{
-                    backgroundImage: `url(${avatar})`,  backgroundSize: 'cover',
+                    backgroundImage: `url(${blog.avatar})`,  backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                   }}>
                   </div> 
-                    <p className={styles.cardInfo}>John Doe • 8/11/2023</p>
+                    <p className={styles.cardInfo}>{blog.author} • {formatDate(blog.datePosted)}</p>
                 </div>
               </div>
             </Link>
