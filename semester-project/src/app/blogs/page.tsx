@@ -137,7 +137,7 @@ export default async function Blog({
                   pathname: "/blogs",
                   query: { _page: 1, _limit: pageSize },
                 }}
-                className="rounded-3xl border  bg-[#065E35] px-10 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
+                className="rounded-3xl border  bg-[#065E35] px-10 py-2  text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
               >
                 First
               </Link>
