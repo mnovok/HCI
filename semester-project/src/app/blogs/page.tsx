@@ -93,7 +93,7 @@ export default async function Blog({
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24">
         {posts.map((post, index) => (
-          <div key={post.id} className={`relative ${index === 0 ? 'lg:col-span-full md:col-span-full' : 'col-span-2 md:col-span-1'}`}>
+          <div key={post.id} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
             <Link href={`blogs/${post.id}`}>
               <div
                 className={`${styles.blogCardItem} h-80 md:h-64 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}

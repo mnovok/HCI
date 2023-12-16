@@ -77,7 +77,7 @@ const BlogSection = () => {
             </div>
 
         </div>
-        <Link href="/blogs?_page=1&_limit=7" className={styles.btn}>Load more</Link>
+        <Link href="/blogs?_page=1&_limit=6" className={styles.btn}>Load more</Link>
     </div>
  )
 };
