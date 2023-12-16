@@ -1,4 +1,3 @@
-import { Post } from "../page";
 import { useState } from "react";
 import styles from './post.module.css';
 import Link from "next/link";
@@ -7,6 +6,8 @@ const imageUrl2 = 'https://plus.unsplash.com/premium_photo-1663054480506-583f202
 const imageUrl3 = 'https://plus.unsplash.com/premium_photo-1680102981920-cbdc911b7556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const avatar1 = 'https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const avatar2 = 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+import contentfulService from "../../../../lib/contentfulClient";
+
 
 interface Params {
   postId: string;
@@ -55,14 +56,15 @@ const suggestedPosts: Posts[] = [
 
 const BASE_API_URL = "https://jsonplaceholder.typicode.com";
 
-const getPost = async (id: string): Promise<Post> => {
-  const data = await fetch(`${BASE_API_URL}/posts/${id}`);
-  return data.json();
-};
+// const getPost = async (id: string): Promise<Post> => {
+//   const data = await fetch(`${BASE_API_URL}/posts/${id}`);
+//   return data.json();
+// };
+
+
 
 export default async function BlogPost({ params }: { params: Params }) {
-  const post = await getPost(params.postId);
-
+  // const post = await getPost(params.postId);
 
   return (
     <div className={styles.main}>
