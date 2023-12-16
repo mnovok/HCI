@@ -2,7 +2,6 @@ import Link from "next/link";
 import clsx from 'clsx';
 import styles from './blog.module.css';
 import contentfulService from "../../../lib/contentfulClient";
-import { TypeBlogListItem } from "../(contentful)/types/TypeBlog";
 
 interface Pagination {
   limit: number;
