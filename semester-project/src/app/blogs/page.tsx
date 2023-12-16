@@ -91,7 +91,7 @@ export default async function Blog({
           ))}
         </ul> */}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24">
         {posts.map((post, index) => (
           <div key={post.id} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
             <Link href={`blogs/${post.id}`}>
@@ -123,6 +123,7 @@ export default async function Blog({
           </div>
         ))}
       </div>
+
 
     <div className="flex flex-col items-center">
       <div className="mb-4 md:mb-4 text-center md:text-left text-lg">

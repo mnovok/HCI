@@ -11,6 +11,8 @@
     grid-template-columns: 1fr;
     row-gap: 40px;
     overflow-x: hidden;
+    width: 100vw;
+    padding-right: 2%;
 }
 
 .main h1 {
