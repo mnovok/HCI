@@ -66,6 +66,10 @@
     position: relative;
 }
 
+.wrapper {
+
+}
+
 @media (max-width: 768px) {
     .main h1 {
         font-size: 5vw;
@@ -82,5 +86,16 @@
     .cardInfo {
         font-size: smaller;
     }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow-x: hidden; 
+    }
+
+    .blogCardItem {
+        width: 100%;
+      }
 
 }
