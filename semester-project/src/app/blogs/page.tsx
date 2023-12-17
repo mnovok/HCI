@@ -40,7 +40,7 @@ const getTotalPosts = async (): Promise<number> => {
   return parseInt(response.headers.get("x-total-count") || "1", 10);
 };
 
-export function formatDate(dateString: string) {
+function formatDate(dateString: string) {
   const date = new Date(dateString);
   const day = date.getDate();
   const month = date.getMonth() + 1; 
@@ -88,19 +88,6 @@ export default async function Blog({
             </div>
           </div>
         </div>
-
-      
-        {/* <ul className="flex flex-col gap-8">
-          {posts.map((post) => (
-            <li key={post.id}>
-              <Link href={`blogs/${post.id}`}>
-                <span className="text-2xl text-[#065E33] capitalize">
-                  Post {post.title}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul> */}
 
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24">
         {slicedBlogs.map((blog) => (
