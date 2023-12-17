@@ -53,7 +53,7 @@ interface BlogItem {
     };    
   }
 
-  const baseUrl = `https://graphql.contentful.com/content/v1/spaces/s98vp8ae82jl/environments/master`;
+  const baseUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
   const getAllBlogs = async (): Promise<TypeBlogListItem[]> => {
     try {
@@ -61,7 +61,7 @@ interface BlogItem {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer USzZhTEPhSrG7e548ChJaQa_xgNnrTrYYMpvCUeX8hs`,
+          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
         },
         body: JSON.stringify({ query: gqlAllBlogsQuery }),
       });
