@@ -1,13 +1,15 @@
 import { useState } from "react";
 import styles from './post.module.css';
 import Link from "next/link";
+import contentfulService from "../../../../lib/contentfulClient";
+
 const imageUrl1 = 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const imageUrl2 = 'https://plus.unsplash.com/premium_photo-1663054480506-583f20275a34?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';  
 const imageUrl3 = 'https://plus.unsplash.com/premium_photo-1680102981920-cbdc911b7556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const avatar1 = 'https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const avatar2 = 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-import contentfulService from "../../../../lib/contentfulClient";
 
+const BASE_API_URL = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
 interface Params {
   postId: string;
@@ -54,17 +56,30 @@ const suggestedPosts: Posts[] = [
   },
 ];
 
-const BASE_API_URL = "https://jsonplaceholder.typicode.com";
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; 
+  const year = date.getFullYear();
 
-// const getPost = async (id: string): Promise<Post> => {
-//   const data = await fetch(`${BASE_API_URL}/posts/${id}`);
-//   return data.json();
-// };
+  const formattedDay = String(day).padStart(2, '0');
+  const formattedMonth = String(month).padStart(2, '0');
 
+  return `${formattedDay}/${formattedMonth}/${year}`;
+}
 
 
 export default async function BlogPost({ params }: { params: Params }) {
   // const post = await getPost(params.postId);
+  const blog = await contentfulService.getBlogPostById(params.postId);
+  const allBlogs = await contentfulService.getAllBlogs();
+
+  const randomStartIndex = Math.floor(Math.random() * (allBlogs.length - 3));
+  const suggestedBlogs = allBlogs.slice(randomStartIndex, randomStartIndex + 3);
+
+  if (!blog) {
+    return <div>Blog post not found</div>;
+  }
 
   return (
     <div className={styles.main}>
@@ -72,14 +87,14 @@ export default async function BlogPost({ params }: { params: Params }) {
       <div className={styles.headerContainer}>
 
         <h1 className={styles.title}>
-          <span className="text-green-800">Post {post.id}:</span> {post.title}
+          <span className="text-green-800"></span> {blog?.title}
         </h1>
 
         <div className={styles.userInfo}>
           <Link href={'/user/id'}>
-            <h2 className={styles.cardInfo}>Jessica Park</h2>
+            <h2 className={styles.cardInfo}>{blog.author}</h2>
           </Link>
-          <span className={styles.date}>• 8/11/2023</span>
+          <span className={styles.date}>• {formatDate(blog.datePosted)}</span>
         </div>
 
       </div>
@@ -87,23 +102,23 @@ export default async function BlogPost({ params }: { params: Params }) {
       <div className={styles.contentContainer}>
 
         <div className={styles.imageContainer}>
-          <img src={imageUrl1} className={styles.postImage}></img>
+          <img src={blog.thumbnail} className={styles.postImage}></img>
         </div>
 
-        <p className="text-xl p-10">{post.body}</p>
+        <p className="text-xl p-10">{blog.content}</p>
 
         <div className={styles.aboutContainer}>
           <div className={styles.avatar}>
-            <img src={avatar1} alt="Avatar" />
+            <img src={blog.avatar} alt="Avatar" />
          </div>
 
         <div className={styles.aboutInfo}>
            <Link href={'/user/id'}>
-            <h2 className={styles.cardInfo}>Jessica Park</h2>
+            <h2 className={styles.cardInfo}>{blog.author}</h2>
             </Link>
             <p>Status: Online</p>
             <p>Joined: 07/11/2023</p>
-            <p>Country: South Korea</p>
+            <p>Country: USA</p>
             <p>About: fitness, hiking, travelling!</p>
         </div>
         </div>
@@ -111,32 +126,32 @@ export default async function BlogPost({ params }: { params: Params }) {
         <h1 className="flex justify-center text-3xl py-4 text-[#04371E]">Suggested blogs:</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24 py-4">
-          {suggestedPosts.map((suggestedPost, index) => (
-          <div key={suggestedPost.id} className={`relative col-span-3 md:col-span-1`}>
-            <Link href={`${suggestedPost.id}`}>
+          {suggestedBlogs.map((suggestedBlog) => (
+          <div key={suggestedBlog.id} className={`relative col-span-3 md:col-span-1`}>
+            <Link href={`${suggestedBlog.id}`}>
               <div
                 className={`${styles.blogCardItemSuggested} h-80 md:h-96 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}
                 style={{
-                  backgroundImage: index === 0 ? `url(${imageUrl2})` : `url(${index % 2 === 0 ? imageUrl2 : imageUrl3})`,
+                  backgroundImage: `url(${suggestedBlog.thumbnail})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                 }}
               >
                 <span className={`${styles.cardTextSuggested} text-xl md:text-xl lg:text-xl xl:text-3xl font-semibold capitalize`}>
-                  {suggestedPost.title}
+                  {suggestedBlog.title}
                 </span>
                 
                 <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
                   <div className={`${styles.avatarSuggested} w-4 h-4 rounded-full mr-4`} 
                     style={{
-                      backgroundImage: `url(${avatar1})`,  
+                      backgroundImage: `url(${suggestedBlog.avatar})`,  
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       backgroundRepeat: 'no-repeat',
                     }}>
                   </div> 
-                  <p className={styles.cardInfoSuggested}>{suggestedPost.username} • 8/11/2023</p>
+                  <p className={styles.cardInfoSuggested}>{suggestedBlog.author} • {formatDate(blog.datePosted)}</p>
                 </div>
               </div>
             </Link>

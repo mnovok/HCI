@@ -40,7 +40,7 @@ const getTotalPosts = async (): Promise<number> => {
   return parseInt(response.headers.get("x-total-count") || "1", 10);
 };
 
-function formatDate(dateString: string) {
+export function formatDate(dateString: string) {
   const date = new Date(dateString);
   const day = date.getDate();
   const month = date.getMonth() + 1; 
@@ -104,7 +104,7 @@ export default async function Blog({
 
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24">
         {slicedBlogs.map((blog) => (
-          <div key={blog.datePosted} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
+          <div key={blog.id} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
             <Link href={`blogs/${blog.id}`}>
               <div
                 className={`${styles.blogCardItem} h-80 md:h-64 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}

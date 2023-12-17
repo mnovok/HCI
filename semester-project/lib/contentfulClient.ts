@@ -31,6 +31,26 @@ const gqlAllBlogsQuery = `
   }
 `;
 
+const getBlogById = `
+  query GetBlogPostById($postId: String!) {
+    blogPost(id: $postId) {
+      sys {
+        id
+      }
+      title
+      author
+      datePosted
+      content
+      thumbnail {
+        url
+      }
+      avatar {
+        url
+      }
+    }
+  }
+`;
+
 interface BlogCollectionResponse {
     blogPostCollection: {
       items: BlogItem[];
@@ -99,10 +119,51 @@ interface BlogItem {
       return [];
     }
   };
+
+  const getBlogPostById = async (postId: string): Promise<TypeBlogListItem | null> => {
+    try {
+      const response = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+        },
+        body: JSON.stringify({
+          query: getBlogById, // Use the defined query for getting a blog post by ID
+          variables: { postId }, // Pass the postId as a variable
+        }),
+      });
   
-  const contentfulService = {
-    getAllBlogs,
+      const body = await response.json();
+  
+      // Check for errors in the response
+      if (body.errors) {
+        throw new Error(body.errors[0].message);
+      }
+  
+      const blogPost = body.data.blogPost;
+  
+      const formattedBlogPost: TypeBlogListItem = {
+        id: blogPost.sys.id,
+        title: blogPost.title,
+        author: blogPost.author,
+        datePosted: blogPost.datePosted,
+        content: blogPost.content,
+        thumbnail: blogPost.thumbnail?.url,
+        avatar: blogPost.avatar?.url,
+      };
+  
+      return formattedBlogPost;
+    } catch (error) {
+      console.error('Error fetching blog post:', error);
+      return null;
+    }
   };
   
-  export default contentfulService;
+const contentfulService = {
+    getAllBlogs,
+    getBlogPostById,
+  };
+  
+export default contentfulService;
 
