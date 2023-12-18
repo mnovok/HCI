@@ -51,11 +51,17 @@ background-image: url(../../public/images/bg.jpg);*/
 
 @media (max-width: 768px) {
     .landingFrame1 {
-        height: 50vh;
+        height: 40vh;
     }
 
     .landingFrame1 .sloganContainer {
-        padding-top: 40px;
+        padding-top: 30px;
+        row-gap: 20px;
+        width: 60%;
+    }
+
+    .landingFrame1 .slogan  {
+        font-size: 4.5vw;
     }
 }
   

@@ -12,7 +12,7 @@ export default function Home() {
       <div className={styles.landingFrame1}>
         <Image className={styles.bgIMG} src={'/images/bg.jpg'} alt={'backgroundIMG'} fill={true} priority/>
         <div className={styles.sloganContainer}>
-          <p className={styles.slogan}>Navigating Your Journey, <br /> One Adventure at a Time!</p>
+          <p className={styles.slogan}>Navigating Your Journey, One Adventure at a Time!</p>
           <Link href="/destinations" className={styles.btn}>Explore Now</Link>
         </div>
         
