@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 40px;
+    padding-bottom: 100px;
 }
 
 .searchBarContainer {

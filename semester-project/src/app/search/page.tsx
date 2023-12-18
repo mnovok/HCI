@@ -58,7 +58,7 @@ export default function SearchPage(){
     return(
         <div className={styles.searchMain}>
             <div className={styles.searchBarContainer}>
-                <h1 className={styles.header1}>Search   <i>destinations</i>   or   <i>blogs</i></h1>
+                <h1 className={styles.header1}>Where would you like to travel?</h1>
                 <form action="" className={styles.searchForm}>
                     <input type="text"  
                            autoFocus 
@@ -105,7 +105,7 @@ export default function SearchPage(){
 
             </div>
             <div className={styles.suggestionsContainer}>
-                <span className={styles.suggestionsHeader}>Destination suggestions:</span>
+                <span className={styles.suggestionsHeader}>Suggestions:</span>
                 <div className={styles.destinationsSuggestions}>
                     {destinations.slice(0,4).map((destination: TypeDestinationListItem) => (
                         <div key={destination.id} className={styles.destinationCard}>
@@ -120,10 +120,6 @@ export default function SearchPage(){
                       </div>
                     ))}
                 </div>
-            </div>
-            <div className={styles.suggestionsContainer}>
-                <span className={styles.suggestionsHeader}>Blog suggestions:</span>
-               
             </div>
         </div>
     )
