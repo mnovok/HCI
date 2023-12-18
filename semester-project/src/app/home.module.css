@@ -4,30 +4,58 @@
 }
 
 .landingFrame1 {
-    background-size: 100% 100%;
+    /*background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100vh;
-    display: flex;
+     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     row-gap: 30px;
     text-transform: uppercase;
-    background-image: url(../../public/images/bg.jpg);
+background-image: url(../../public/images/bg.jpg);*/
+
+    position: relative;
+    height: 100vh;
+    text-transform: uppercase;
+}
+
+.landingFrame1 .sloganContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 30px;
+    text-align: center;
 }
   
 .landingFrame1 .slogan {
-    color: var(--primary-light-color);
+    /*color: var(--primary-light-color);
     font-size: 4vw;
     text-shadow: 1px 1px 2px black;
     font-weight: bold;
     letter-spacing: -1px;
-    padding-top: 0.5vw;
+    padding-top: 0.5vw;*/
+
+    color: var(--primary-light-color);
+    font-size: 3.5vw;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    letter-spacing: -1px;
 }
 
 @media (max-width: 768px) {
     .landingFrame1 {
         height: 50vh;
+    }
+
+    .landingFrame1 .sloganContainer {
+        padding-top: 40px;
     }
 }
   
@@ -45,7 +73,6 @@
     color: var(--primary-dark-color);
     cursor: pointer;
 }
-
 
 /* Frame 2 : Discover*/
 

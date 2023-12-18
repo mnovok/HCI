@@ -3,14 +3,19 @@ import HeroSection from './_components/hero/HeroSection';
 import BlogSection from './_components/blog/BlogSection';
 import styles from './home.module.css'
 import Link from 'next/link'
+import Image from 'next/image';
 
 
 export default function Home() {
   return (
     <div className={styles.main}>
       <div className={styles.landingFrame1}>
-        <p className={styles.slogan}>Navigating Your Journey, <br /> One Adventure at a Time!</p>
-        <Link href="/destinations" className={styles.btn}>Explore Now</Link>
+        <Image className={styles.bgIMG} src={'/images/bg.jpg'} alt={'backgroundIMG'} fill={true} priority/>
+        <div className={styles.sloganContainer}>
+          <p className={styles.slogan}>Navigating Your Journey, <br /> One Adventure at a Time!</p>
+          <Link href="/destinations" className={styles.btn}>Explore Now</Link>
+        </div>
+        
       </div>
       <div className={styles.discoverFrame2}>
         <div className={styles.discover}>
