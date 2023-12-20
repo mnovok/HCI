@@ -1,22 +1,65 @@
-"use client";
-
 import Link from "next/link";
-import styles from './destionations.module.css';
-import { TypeCategory, TypeDestinationListItem, categories, destinations } from "./destinationsList";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
 import Image from "next/image";
+import styles from './destionations.module.css';
+import contentfulService from "../../../lib/contentfulClient";
 
-export interface Post {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
+export default async function DestinationsPage ({} : {}) {
+  const destinations = await contentfulService.getAllDestinations();
+  const continents =[
+    {
+        label: "Asia",
+    },
+    {
+        label: "Africa",
+    },
+    {
+        label: "Europe",
+    },
+    {
+        label: "Australia",
+    },
+    {
+        label: "North America",
+    },
+    {
+        label: "South America",
+    },
+  ];
+
+  return (
+    <>
+    <div className={styles.categoriesContainer}>
+        {continents.map((category) => (
+          <div className={`${styles.category} `} key={category?.label}>
+            {category?.label}
+          </div>
+        ))}
+          <div className={styles.resetCategory}>
+            Reset filter
+          </div>
+      </div>
+
+    <div className={styles.destinationsContainer}>
+    {destinations.map((destination) => {
+          return (
+            <div key={destination.id} className={styles.destinationCard}>
+              <Link href={`destinations/${destination.id}`}>
+                <div className={styles.imageContainer}>
+                  <Image src="/images/heart2.png" alt="Heart" width={23} height={23} className={styles.heart}/>
+                  <img src={destination.thumbnail} alt={destination.thumbnail} className={styles.destinationImage} />
+                </div>
+                <h2 className={styles.name}>{destination.title}</h2>
+                <p className={styles.country}>{destination.country}</p>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
 }
 
-interface CategoryFilterProps {
-  categories: TypeCategory[];
-}
+/*
 
 const DestinationsPage: React.FC = () => {
   const searchParams = useSearchParams();
@@ -86,5 +129,4 @@ const DestinationsPage: React.FC = () => {
 };
   
 //<p>Categories: {destination.categories.map(category => category.label).join(', ')}</p>
-
-export default DestinationsPage;
+export default CmsPage;*/

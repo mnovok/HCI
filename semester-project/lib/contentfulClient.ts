@@ -71,7 +71,80 @@ interface BlogItem {
     avatar: {
         url: string;
     };    
+}
+
+interface TypeDestinationListItem {
+  id: string;
+  title: string;
+  country: string;
+  thumbnail: string;
+  continent: string;
+  contentBody: {
+    nodeType: any;
+    data: any;
+    content: [];
+  };
+}
+
+const gqlAllDestinationsQuery = `query destinationPostsList {
+  destinationPostCollection {
+    items {
+      sys {
+        id
+      }
+      title
+      country
+      continent
+      image {
+        url
+      }
+      body {
+        json
+      }
+    }
   }
+}`;
+
+const getDestinationById = `
+  query getDestinationPostById($destinationId: String!) {
+    destinationPost(id: $destinationId) {
+      sys {
+        id
+      }
+      title
+      country
+      continent
+      image {
+        url
+      }
+      body {
+        json
+      }
+    }
+  }
+`;
+
+interface DestinationCollectionResponse {
+  destinationPostCollection: {
+      items: DestinationItem[];
+    };
+}
+
+interface DestinationItem {
+  sys: {
+    id: string;
+  };
+  title: string;
+  country: string;
+  thumbnail: {
+    url: string;
+  };
+  continent: string;
+  contentBody: {
+    json: {
+    }
+  }
+}
 
   const baseUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
@@ -158,11 +231,87 @@ interface BlogItem {
       console.error('Error fetching blog post:', error);
       return null;
     }
-  };
+};
+
+const getAllDestinations = async (): Promise<TypeDestinationListItem[]> => {
+  try {
+    const response = await fetch(baseUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({ query: gqlAllDestinationsQuery }),
+    });
+
+    const responseBody = await response.json();
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const body = responseBody.data;
+
+    if (!body?.destinationPostCollection?.items) {
+      throw new Error("No items found in the response");
+    }
+
+    const destinations: TypeDestinationListItem[] = body.destinationPostCollection.items.map((item: any) => ({
+      id: item.sys.id,
+      title: item.title,
+      country: item.country,
+      thumbnail: item.image.url,
+      contentBody: item.body.json,
+      continent: item.continent,
+    }));
+
+   console.log("Products fetched:", destinations);
+    return destinations;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
+  }
+}
+
+const getDestinationPostById = async (destinationId: string): Promise<TypeDestinationListItem | null> => {
+  try {
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({
+        query: getDestinationById, 
+        variables: { destinationId }, 
+      }),
+    });
+
+    const body = await response.json();
+    if (body.errors) {
+      throw new Error(body.errors[0].message);
+    }
+    const destinationPost = body.data.destinationPost;
+
+    const formattedDestinationPost: TypeDestinationListItem = {
+      id: destinationPost.sys.id,
+      title: destinationPost.title,
+      country: destinationPost.country,
+      continent: destinationPost.continent,
+      thumbnail: destinationPost.image.url,
+      contentBody: destinationPost.body.json,
+    };
+
+    return formattedDestinationPost;
+  } catch (error) {
+    console.error('Error fetching destination post:', error);
+    return null;
+  }
+}
   
 const contentfulService = {
     getAllBlogs,
     getBlogPostById,
+    getAllDestinations,
+    getDestinationPostById,
   };
   
 export default contentfulService;
