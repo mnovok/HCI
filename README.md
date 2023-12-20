@@ -6,7 +6,6 @@ Travelling Web App deployed to [Vercel](https://planvoyage.vercel.app/)
 - [Class Projects](#class-projects)
 - [Semester Project](/semester-project)
 
-
 ## Project Structure
 
 - **`/semester-project`**: The source code of the main project; the source code for the full-fledged implementation.
@@ -22,3 +21,4 @@ Travelling Web App deployed to [Vercel](https://planvoyage.vercel.app/)
 - [Class Project 4](/class-projects/class-project-4/)
 - [Class Project 5](/class-projects/class-project-5/)
 - [Class Project 6](/class-projects/class-project-6/)
+- [Class Project 7](/class-projects/class-project-7/)
