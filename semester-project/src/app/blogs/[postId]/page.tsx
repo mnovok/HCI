@@ -3,10 +3,6 @@ import styles from './post.module.css';
 import Link from "next/link";
 import contentfulService from "../../../../lib/contentfulClient";
 
-const imageUrl1 = 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-const imageUrl2 = 'https://plus.unsplash.com/premium_photo-1663054480506-583f20275a34?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';  
-const imageUrl3 = 'https://plus.unsplash.com/premium_photo-1680102981920-cbdc911b7556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-const avatar1 = 'https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const avatar2 = 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 const BASE_API_URL = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
@@ -14,47 +10,6 @@ const BASE_API_URL = `https://graphql.contentful.com/content/v1/spaces/${process
 interface Params {
   postId: string;
 }
-
-export interface Posts {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-  username: string;
-}
-
-// Create an object adhering to the Post interface
-const post: Posts = {
-  userId: 1,
-  id: 1,
-  title: 'Sample Title',
-  body: 'This is a sample body for the post.',
-  username: 'John Doe',
-};
-
-const suggestedPosts: Posts[] = [
-  {
-    userId: 2,
-    id: 2,
-    title: 'Suggested Post 1',
-    body: 'This is the body of suggested post 1.',
-    username: 'Jane Smith',
-  },
-  {
-    userId: 3,
-    id: 3,
-    title: 'Suggested Post 2',
-    body: 'This is the body of suggested post 2.',
-    username: 'Alice Johnson',
-  },
-  {
-    userId: 4,
-    id: 4,
-    title: 'Suggested Post 3',
-    body: 'This is the body of suggested post 3.',
-    username: 'Bob Williams',
-  },
-];
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
@@ -68,7 +23,26 @@ function formatDate(dateString: string) {
   return `${formattedDay}/${formattedMonth}/${year}`;
 }
 
+function splitContentIntoParagraphs(content: string): string[] {
+  const sentences = content.split(/[.!?]/).filter(sentence => sentence.trim().length > 0);
+  const paragraphs: string[] = [];
 
+  const sentenceChunks = 10;
+  const totalChunks = Math.ceil(sentences.length / sentenceChunks);
+
+  for (let i = 0; i < totalChunks; i++) {
+    const chunk = sentences.slice(i * sentenceChunks, (i + 1) * sentenceChunks);
+
+    // If it's not the last chunk, include periods after sentences
+    const paragraph = i < totalChunks - 1 ?
+      chunk.join('. ') + '.' :
+      chunk.join('. ');
+
+    paragraphs.push(paragraph);
+  }
+
+  return paragraphs;
+}
 export default async function BlogPost({ params }: { params: Params }) {
   // const post = await getPost(params.postId);
   const blog = await contentfulService.getBlogPostById(params.postId);
@@ -77,9 +51,13 @@ export default async function BlogPost({ params }: { params: Params }) {
   const randomStartIndex = Math.floor(Math.random() * (allBlogs.length - 3));
   const suggestedBlogs = allBlogs.slice(randomStartIndex, randomStartIndex + 3);
 
+
+
   if (!blog) {
     return <div>Blog post not found</div>;
   }
+
+  const paragraphs = splitContentIntoParagraphs(blog.content);
 
   return (
     <div className={styles.main}>
@@ -105,7 +83,14 @@ export default async function BlogPost({ params }: { params: Params }) {
           <img src={blog.thumbnail} className={styles.postImage}></img>
         </div>
 
-        <p className="text-xl p-10">{blog.content}</p>
+        {/* <p className="text-xl p-10 leading-8">{blog.content}</p> */}
+        <div className="text-xl p-10 leading-8">
+          {paragraphs.map((paragraph, index) => (
+            <div key={index} className={`mb-6 ${index !== 0 ? 'mt-6' : ''}`}>
+              {paragraph}
+            </div>
+          ))}
+        </div>
 
         <div className={styles.aboutContainer}>
           <div className={styles.avatar}>
@@ -125,7 +110,7 @@ export default async function BlogPost({ params }: { params: Params }) {
         
         <h1 className="flex justify-center text-3xl py-4 text-[#04371E]">Suggested blogs:</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 md:px-8 lg:px-24 py-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:px-8 lg:px-10 py-4">
           {suggestedBlogs.map((suggestedBlog) => (
           <div key={suggestedBlog.id} className={`relative col-span-3 md:col-span-1`}>
             <Link href={`${suggestedBlog.id}`}>

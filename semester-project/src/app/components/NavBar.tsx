@@ -29,9 +29,11 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
 
     return (
         <nav className={styles.navContainer}>
-            <Link href={`/`}>
-                <Logo />
-            </Link>
+            <div className="pl-2"> 
+                <Link href={`/`}>
+                    <Logo />
+                </Link>
+            </div>
             <ul className={styles.navList}>
                 {Object.entries(pages).map(([name, path]) => (
                     <li key={name} >
