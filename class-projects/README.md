@@ -8,3 +8,4 @@ References to class projects:
 - [Class project 4: Low/High-fidelity prototype](/class-projects/class-project-4/)
 - [Class project 5: Dynamic routes, data fetching](/class-projects/class-project-5/)
 - [Class project 6: Full Responsive Page Coding](/class-projects/class-project-6/)
+- [Class project 7: Working on Semester Project](/class-projects/class-project-7/)
