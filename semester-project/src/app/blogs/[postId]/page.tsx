@@ -45,8 +45,9 @@ function splitContentIntoParagraphs(content: string): string[] {
 }
 export default async function BlogPost({ params }: { params: Params }) {
   // const post = await getPost(params.postId);
+  const blogsPerPage = 6;
   const blog = await contentfulService.getBlogPostById(params.postId);
-  const allBlogs = await contentfulService.getAllBlogs();
+  const allBlogs = await contentfulService.getAllBlogs(1, blogsPerPage);
 
   const randomStartIndex = Math.floor(Math.random() * (allBlogs.length - 3));
   const suggestedBlogs = allBlogs.slice(randomStartIndex, randomStartIndex + 3);

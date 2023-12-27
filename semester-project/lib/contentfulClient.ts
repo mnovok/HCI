@@ -9,6 +9,28 @@ interface TypeBlogListItem {
     avatar: string;
 }
 
+const getPaginatedBlogsQuery = `
+query GetBlogPosts($skip: Int, $limit: Int) {
+  blogPostCollection(skip: $skip, limit: $limit) {
+    items {
+      sys {
+        id
+      }
+      title
+      author
+      datePosted
+      content
+      thumbnail {
+        url
+      }
+      avatar {
+        url
+      }
+    }
+  }
+}
+`;
+
 const gqlAllBlogsQuery = `
   query blogPostsList {
     blogPostCollection {
@@ -49,6 +71,14 @@ const getBlogById = `
       }
     }
   }
+`;
+
+const getTotalBlogPostsNumberQuery = `
+  query GetTotalBlogPostsNumber {
+    blogPostCollection {
+    total
+  }
+}
 `;
 
 interface BlogCollectionResponse {
@@ -148,17 +178,23 @@ interface DestinationItem {
 
   const baseUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
-  const getAllBlogs = async (): Promise<TypeBlogListItem[]> => {
+  const getAllBlogs = async (page: number, pageSize: number): Promise<TypeBlogListItem[]> => {
     try {
+      const skip = (page - 1) * pageSize;
       const response = await fetch(baseUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
         },
-        body: JSON.stringify({ query: gqlAllBlogsQuery }),
+        body: JSON.stringify({
+          query: gqlAllBlogsQuery,
+          variables: {
+            _page: page,
+            _limit: pageSize,
+          },
+        }),
       });
-
   
       // Log the complete response from the Contentful API
       console.log("Response from Contentful API:", response);
@@ -185,10 +221,10 @@ interface DestinationItem {
         avatar: item.avatar.url,
       }));
   
-     console.log("Products fetched:", blogs);
+      console.log(`Fetched blogs for page ${page}:`, blogs);
       return blogs;
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error("Error fetching blogs:", error);
       return [];
     }
   };
@@ -232,6 +268,37 @@ interface DestinationItem {
       return null;
     }
 };
+
+const getTotalBlogPostsNumber = async (): Promise<number> => {
+  try {
+    const response = await fetch(baseUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({
+        query: getTotalBlogPostsNumberQuery,
+      }),
+    });
+
+    const responseBody = await response.json();
+
+    if (!response.ok || !responseBody.data) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const total = responseBody.data.blogPostCollection.items.length;
+
+    console.log("Total number of blog posts:", total);
+    return total;
+  } catch (error) {
+    console.error("Error fetching total number of blog posts:", error);
+    return 0;
+  }
+};
+
+
 
 const getAllDestinations = async (): Promise<TypeDestinationListItem[]> => {
   try {
@@ -310,6 +377,7 @@ const getDestinationPostById = async (destinationId: string): Promise<TypeDestin
 const contentfulService = {
     getAllBlogs,
     getBlogPostById,
+    getTotalBlogPostsNumber,
     getAllDestinations,
     getDestinationPostById,
   };

@@ -2,11 +2,20 @@ import Link from "next/link";
 import clsx from 'clsx';
 import styles from './blog.module.css';
 import contentfulService from "../../../lib/contentfulClient";
+import Pagination from "../(contentful)/types/_ccomponents/Pagination";
+import { useState } from "react";
 
-interface Pagination {
-  limit: number;
+export type PageProps = {
   page: number;
-}
+  limit?: number;
+};
+
+export type PaginationProps = {
+  first?: PageProps;
+  prev?: PageProps;
+  next?: PageProps;
+  last?: PageProps;
+};
 
 interface BlogItem {
     id: string;
@@ -20,7 +29,7 @@ interface BlogItem {
 const BASE_API_URL = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
 const getPosts = async (
-  pagination: Pagination = {
+  pagination = {
     limit: 6,
     page: 1,
   }
@@ -58,16 +67,19 @@ export default async function Blog({
   searchParams: Record<string, string | string[] | undefined>;
 }) {
   const { _limit, _page } = searchParams;
+  const blogsPerPage = 6;
+  const currentPage = 1;
   const [pageSize, page] = [_limit, _page].map(Number);
   const totalPosts = await getTotalPosts();
   const totalPages = Math.ceil(totalPosts / pageSize);
-  const blogs = await contentfulService.getAllBlogs();
+  const blogs = await contentfulService.getAllBlogs(1, blogsPerPage);
   const slicedBlogs = blogs.slice((page - 1) * pageSize, page * pageSize);
 
   const posts = await getPosts({
     limit: pageSize,
     page: page,
   });
+  
 
   return (
     <div className={styles.main}>
@@ -127,58 +139,7 @@ export default async function Blog({
       <div className="mb-4 md:mb-4 text-center md:text-left text-lg pt-4">
           Page {page} of {totalPages}
       </div>
-      {_limit && _page && (
-          <div className="flex items-baseline gap-8 pb-10">
-            <div className="flex gap-4">
-              <Link
-                href={{
-                  pathname: "/blogs",
-                  query: { _page: 1, _limit: pageSize },
-                }}
-                className="rounded-3xl border  bg-[#065E35] lg:px-10 py-2 sm:px-18  text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
-              >
-                <span className="hidden md:inline">First</span>
-                <span className="md:hidden"> &lt;&lt;</span>
-              </Link>
-              <Link
-                href={{
-                  pathname: "/blogs",
-                  query: { _page: page > 1 ? page - 1 : 1, _limit: pageSize },
-                }}
-                className={clsx(
-                  "rounded-3xl border bg-[#065E35] lg:px-6 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
-                  page === 1 && "pointer-events-none opacity-50"
-                )}
-              >
-                <span className="hidden md:inline">Previous</span>
-                <span className="md:hidden"> &lt;</span>
-              </Link>
-              <Link
-                href={{
-                  pathname: "/blogs",
-                  query: { _page: page + 1, _limit: pageSize },
-                }}
-                className={clsx(
-                  "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
-                  page === totalPages && "pointer-events-none opacity-50"
-                )}
-              >
-                <span className="hidden md:inline">Next</span>
-                <span className="md:hidden"> &gt;</span>
-              </Link>
-              <Link
-                href={{
-                  pathname: "/blogs",
-                  query: { _page: totalPages, _limit: pageSize },
-                }}
-                className="rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]"
-              >
-                <span className="hidden md:inline">Last</span>
-                <span className="md:hidden"> &gt;&gt;</span>
-              </Link>
-            </div>
-          </div>
-        )}
+        <Pagination page={currentPage} totalPages={totalPages} pageSize={blogsPerPage} />
       </div>
     </div>
   );
