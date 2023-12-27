@@ -18,7 +18,7 @@ function formatDate(dateString: string) {
 }
 
 const BlogSection = async () => {
-    const blogs = await contentfulService.getAllBlogs();
+    const blogs = await contentfulService.getAllBlogs(1, 6);
     const numBlogs = blogs.length;
     const slicedBlogs = blogs.slice(numBlogs - 2, numBlogs);
   
