@@ -147,10 +147,10 @@
 }
 
 .commentsContainer {
-    max-width: 75vw;  
+    /* max-width: 25vw;   */
     padding: 20px; 
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     max-width: 94%;
     margin: 0 auto;
     margin-bottom: 5%;
@@ -248,7 +248,7 @@
     }
 
     .aboutInfo p{
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     .aboutContainer .avatar{
@@ -258,5 +258,12 @@
 
     .cardInfoComment {
         font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .commentsContainer {
+        display: flex; 
+        align-items: center;
     }
 }

@@ -124,7 +124,7 @@ export default async function BlogPost({ params }: { params: Params }) {
                   backgroundRepeat: 'no-repeat',
                 }}
               >
-                <span className={`${styles.cardTextSuggested} text-xl md:text-xl lg:text-xl xl:text-3xl font-semibold capitalize`}>
+                <span className={`${styles.cardTextSuggested} text-xl md:text-xl lg:text-xl xl:text-2xl font-semibold capitalize`}>
                   {suggestedBlog.title}
                 </span>
                 
