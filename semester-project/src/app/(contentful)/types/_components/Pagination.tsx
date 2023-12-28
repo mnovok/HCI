@@ -29,6 +29,7 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
       },
       [searchParams, pathname, router]
     );
+
   
     return (
         <div className="flex items-baseline gap-8 pb-10">
@@ -41,6 +42,7 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
               }}
               className={cn(
                 "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                page === 1 && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", 1)}
             >
@@ -68,7 +70,7 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page >= totalPages && "pointer-events-none opacity-50"
               )}
-              onClick={() => setPageParam("_page", page + 1)}
+              onClick={() => setPageParam("_page", page < totalPages ? page + 1 : totalPages)}
             >
               Next
             </Link>
@@ -79,12 +81,13 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
               }}
               className={cn(
                 "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                page === totalPages && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", totalPages)}
             >
               Last
             </Link>
-          </div>
+            </div>
             </div>
         </div>
       );

@@ -33,7 +33,7 @@ query GetBlogPosts($skip: Int, $limit: Int) {
 
 const gqlAllBlogsQuery = `
   query blogPostsList {
-    blogPostCollection {
+    blogPostCollection(order: datePosted_DESC){
       items {
         sys {
           id
@@ -269,35 +269,34 @@ interface DestinationItem {
     }
 };
 
-const getTotalBlogPostsNumber = async (): Promise<number> => {
-  try {
-    const response = await fetch(baseUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-      },
-      body: JSON.stringify({
-        query: getTotalBlogPostsNumberQuery,
-      }),
-    });
+  const getTotalBlogPostsNumber = async (): Promise<number> => {
+    try {
+      const response = await fetch(baseUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+        },
+        body: JSON.stringify({
+          query: getTotalBlogPostsNumberQuery,
+        }),
+      });
 
-    const responseBody = await response.json();
+      const responseBody = await response.json();
 
-    if (!response.ok || !responseBody.data) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      if (!response.ok || !responseBody.data || !responseBody.data.blogPostCollection) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const total = responseBody.data.blogPostCollection.total;
+
+      console.log("Total number of blog posts:", total);
+      return total;
+    } catch (error) {
+      console.error("Error fetching total number of blog posts:", error);
+      return 0;
     }
-
-    const total = responseBody.data.blogPostCollection.items.length;
-
-    console.log("Total number of blog posts:", total);
-    return total;
-  } catch (error) {
-    console.error("Error fetching total number of blog posts:", error);
-    return 0;
-  }
-};
-
+  };
 
 
 const getAllDestinations = async (): Promise<TypeDestinationListItem[]> => {

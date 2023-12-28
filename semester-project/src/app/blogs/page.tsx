@@ -2,7 +2,7 @@ import Link from "next/link";
 import clsx from 'clsx';
 import styles from './blog.module.css';
 import contentfulService from "../../../lib/contentfulClient";
-import Pagination from "../(contentful)/types/_ccomponents/Pagination";
+import Pagination from "../(contentful)/types/_components/Pagination";
 import { useState } from "react";
 
 export type PageProps = {
@@ -70,7 +70,7 @@ export default async function Blog({
   const blogsPerPage = 6;
   const currentPage = 1;
   const [pageSize, page] = [_limit, _page].map(Number);
-  const totalPosts = await getTotalPosts();
+  const totalPosts = await contentfulService.getTotalBlogPostsNumber();
   const totalPages = Math.ceil(totalPosts / pageSize);
   const blogs = await contentfulService.getAllBlogs(1, blogsPerPage);
   const slicedBlogs = blogs.slice((page - 1) * pageSize, page * pageSize);
@@ -139,7 +139,7 @@ export default async function Blog({
       <div className="mb-4 md:mb-4 text-center md:text-left text-lg pt-4">
           Page {page} of {totalPages}
       </div>
-        <Pagination page={currentPage} totalPages={totalPages} pageSize={blogsPerPage} />
+        <Pagination page={page} totalPages={totalPages} pageSize={blogsPerPage} />
       </div>
     </div>
   );

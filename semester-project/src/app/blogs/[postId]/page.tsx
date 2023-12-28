@@ -137,7 +137,7 @@ export default async function BlogPost({ params }: { params: Params }) {
                       backgroundRepeat: 'no-repeat',
                     }}>
                   </div> 
-                  <p className={styles.cardInfoSuggested}>{suggestedBlog.author} • {formatDate(blog.datePosted)}</p>
+                  <p className={styles.cardInfoSuggested}>{suggestedBlog.author} • {formatDate(suggestedBlog.datePosted)}</p>
                 </div>
               </div>
             </Link>
