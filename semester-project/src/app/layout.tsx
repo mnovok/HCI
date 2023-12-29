@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "PlanVoyage",
-  description: "Navigation your journey, one adventure at a time",
+  description: "Navigate your journey, one adventure at a time!",
 }
 
 const pages: Record<string, `/${string}`> = {
