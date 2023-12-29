@@ -41,7 +41,7 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: 1, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-8 py-2 ml-8 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page === 1 && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", 1)}
@@ -55,7 +55,7 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: page > 1 ? page - 1 : 1, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-6 py-2  text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page === 1 && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", page > 1 ? page - 1 : 1)}
@@ -69,7 +69,7 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: page + 1, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 sm:px-8 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-6 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page >= totalPages && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", page < totalPages ? page + 1 : totalPages)}
@@ -83,7 +83,7 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: totalPages, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-8 py-2 mr-8 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page === totalPages && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", totalPages)}
