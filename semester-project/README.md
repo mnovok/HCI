@@ -1,3 +1,5 @@
+A travelling web app that displays posts about various destinations and blog posts, data for both fetched from Contentful.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

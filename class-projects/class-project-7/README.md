@@ -1,6 +1,6 @@
-# Working on Semester Project
+# Working on Semester Project (1/4) 
 
-## Results
+## Results ✔️
 
 - CMS
    - Successfully connected to Contentful
@@ -15,7 +15,7 @@
 
 - Custom 404 Page
 
-## Plans
+## Plans ⭕
 
 - Work on design of Sign In and Sign Up pages
 - Update pagination for blogs

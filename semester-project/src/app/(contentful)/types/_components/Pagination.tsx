@@ -41,12 +41,13 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: 1, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page === 1 && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", 1)}
             >
-              First
+              <span className="sm:hidden">&lt;&lt;</span>
+              <span className="hidden sm:inline">First</span>
             </Link>
             <Link
               href={{
@@ -54,12 +55,13 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: page > 1 ? page - 1 : 1, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page === 1 && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", page > 1 ? page - 1 : 1)}
             >
-              Previous
+              <span className="sm:hidden">&lt;</span>
+              <span className="hidden sm:inline">Previous</span>
             </Link>
             <Link
               href={{
@@ -67,12 +69,13 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: page + 1, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 sm:px-8 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page >= totalPages && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", page < totalPages ? page + 1 : totalPages)}
             >
-              Next
+               <span className="sm:hidden">&gt;</span>
+               <span className="hidden sm:inline">Next</span>
             </Link>
             <Link
               href={{
@@ -80,12 +83,13 @@ const Pagination = ({ page, totalPages, pageSize }: PaginationProps) => {
                 query: { _page: totalPages, _limit: pageSize },
               }}
               className={cn(
-                "rounded-3xl border bg-[#065E35] lg:px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
+                "rounded-3xl border bg-[#065E35] px-10 md:px-10 py-2 sm:px-18 text-green-100 hover:bg-[#B3E0CA] hover:text-[#065E33]",
                 page === totalPages && "pointer-events-none opacity-50"
               )}
               onClick={() => setPageParam("_page", totalPages)}
             >
-              Last
+               <span className="sm:hidden">&gt;&gt;</span>
+               <span className="hidden sm:inline">Last</span>
             </Link>
             </div>
             </div>
