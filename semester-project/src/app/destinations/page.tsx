@@ -2,33 +2,39 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from './destionations.module.css';
 import contentfulService from "../../../lib/contentfulClient";
+import ContinentFilter from "../(contentful)/types/_components/ContinentFilter";
+import { categories } from "./destinationsList";
+import { FC } from "react";
 
-export default async function DestinationsPage ({} : {}) {
+export type SearchParams = {
+  searchParams: Record<string, string | string[] | undefined>;
+};
+
+export interface TypeCategory {
+  label: "Asia" | "Africa" | "Europe" | "Australia" | "North America" | "South America";
+}
+
+const DestinationsPage: FC<SearchParams> = async ({ searchParams }) => {
   const destinations = await contentfulService.getAllDestinations();
-  const continents =[
-    {
-        label: "Asia",
-    },
-    {
-        label: "Africa",
-    },
-    {
-        label: "Europe",
-    },
-    {
-        label: "Australia",
-    },
-    {
-        label: "North America",
-    },
-    {
-        label: "South America",
-    },
+  const continents: TypeCategory[] = [
+    { label: "Asia" },
+    { label: "Africa" },
+    { label: "Europe" },
+    { label: "Australia" },
+    { label: "North America" },
+    { label: "South America" },
   ];
+
+  const continentFilter: string | string[] | undefined = searchParams._category;
+
+  const filteredDestinations = typeof continentFilter === 'string'
+    ? destinations.filter((destination) => destination.continent === continentFilter)
+    : destinations;
+  
 
   return (
     <>
-    <div className={styles.categoriesContainer}>
+    {/* <div className={styles.categoriesContainer}>
         {continents.map((category) => (
           <div className={`${styles.category} `} key={category?.label}>
             {category?.label}
@@ -37,10 +43,11 @@ export default async function DestinationsPage ({} : {}) {
           <div className={styles.resetCategory}>
             Reset filter
           </div>
-      </div>
-
+      </div> */}
+    <ContinentFilter categories={continents}/>
+    
     <div className={styles.destinationsContainer}>
-    {destinations.map((destination) => {
+    {filteredDestinations.map((destination) => {
           return (
             <div key={destination.id} className={styles.destinationCard}>
               <Link href={`destinations/${destination.id}`}>
@@ -58,6 +65,8 @@ export default async function DestinationsPage ({} : {}) {
     </>
   );
 }
+
+export default DestinationsPage;
 
 /*
 
