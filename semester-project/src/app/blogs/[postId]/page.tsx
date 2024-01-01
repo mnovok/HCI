@@ -85,7 +85,7 @@ export default async function BlogPost({ params }: { params: Params }) {
         </div>
 
         {/* <p className="text-xl p-10 leading-8">{blog.content}</p> */}
-        <div className="text-xl p-10 leading-8">
+        <div className="text-xl py-10 px-9 leading-10">
           {paragraphs.map((paragraph, index) => (
             <div key={index} className={`mb-6 ${index !== 0 ? 'mt-6' : ''}`}>
               {paragraph}
