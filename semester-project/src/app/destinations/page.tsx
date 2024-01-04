@@ -17,10 +17,10 @@ export interface TypeCategory {
 const DestinationsPage: FC<SearchParams> = async ({ searchParams }) => {
   const destinations = await contentfulService.getAllDestinations();
   const continents: TypeCategory[] = [
-    { label: "Asia" },
     { label: "Africa" },
-    { label: "Europe" },
+    { label: "Asia" },
     { label: "Australia" },
+    { label: "Europe" },
     { label: "North America" },
     { label: "South America" },
   ];
