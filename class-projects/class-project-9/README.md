@@ -11,6 +11,6 @@
 
 ## Plans ⭕
 
-- UpdatebSearch page
+- Update Search page
 
 Project deployed to Vercel: [PlanVoyage](https://planvoyage.vercel.app/)
