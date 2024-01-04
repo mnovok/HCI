@@ -10,3 +10,5 @@ References to class projects:
 - [Class project 6: Full Responsive Page Coding](/class-projects/class-project-6/)
 - [Class project 7: Working on Semester Project (1/4)](/class-projects/class-project-7/)
 - [Class project 8: Working on Semester Project (2/4)](/class-projects/class-project-8/)
+- [Class project 9: Working on Semester Project (3/4)](/class-projects/class-project-9/)
+
