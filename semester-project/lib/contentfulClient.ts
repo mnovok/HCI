@@ -329,7 +329,7 @@ const getAllDestinations = async (): Promise<TypeDestinationListItem[]> => {
       continent: item.continent,
     }));
 
-   console.log("Products fetched:", destinations);
+   console.log("Destinations fetched:", destinations);
     return destinations;
   } catch (error) {
     console.error("Error fetching products:", error);

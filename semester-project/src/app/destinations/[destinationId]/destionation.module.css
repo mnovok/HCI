@@ -129,3 +129,28 @@
 .text a:hover {
     color: var(--text-medium-color);
 }
+
+@media (max-width: 768px) {
+    .text {
+        padding: 20px;
+    }
+
+    .headerContainer .overlay .countryContainer .country {
+        font-size: 4vw;
+    }
+
+    .headerContainer .overlay .countryContainer .pin {
+        filter: invert(90%) ;
+        height: 4vw;
+        width: 4vw;
+    }
+
+    .headerContainer .overlay .name {
+        color: var(--primary-light-color);
+        text-transform: uppercase;
+        text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+        font-size: 6vw;
+        margin-left: 10%;
+    }
+
+}
