@@ -5,7 +5,7 @@ Travelling Web App deployed to [Vercel](https://planvoyage.vercel.app/)
 PlanVoyage, a Next.js web app, fetches destinations and blogs from Contentful. Users can filter destinations by continent, search for locations, and explore randomized suggestions. Future plans include implementing sign-in functionality for enhanced user interaction, while the app prioritizes a stylish and user-friendly design.
 
 - [Project Structure](#project-structure)
-- [Class Projects](#class-projects)
+- [Class Projects](/class-projects)
 - [Semester Project](/semester-project)
 
 ## Project Structure
