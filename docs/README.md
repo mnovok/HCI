@@ -1,3 +1,3 @@
 # Project report
 
-Include any project documentation in this folder (your final report in Markdown format or a link to it).
+Link to Notion [report](https://hciplanvoyage.notion.site/hciplanvoyage/HCI-Projekt-PlanVoyage-35c4aebf467247f29ce52c58a72cb403).
