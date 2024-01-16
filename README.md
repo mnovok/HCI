@@ -14,3 +14,5 @@ PlanVoyage, a Next.js web app, fetches destinations and blogs from Contentful. U
 - **`/class-projects`**: Results of mini class semester projects.
 - **`/docs`**: Project documentation.
 - **`/misc`**: Miscellaneous files related to the project.
+
+Documentation [link](https://hciplanvoyage.notion.site/hciplanvoyage/HCI-Projekt-PlanVoyage-35c4aebf467247f29ce52c58a72cb403)
