@@ -14,7 +14,7 @@ const NotFound404 = () => {
                 <Link href="/" className={styles.btn}>Back to home</Link>
             </div>
             
-            <Image src="/images/error404.png" alt="404 Image" width={500} height={500}/>
+            <Image src="/images/notFound.png" alt="404 Image" width={500} height={500}/>
         </div>
     )
     

@@ -5,7 +5,7 @@ export interface TypeCategory {
 
 export interface TypeDestinationListItem {
     name: string;
-    id: number;
+    id: string;
     country: string;
     categories: TypeCategory[];
     heroImage: string;
@@ -39,7 +39,7 @@ export const categories: TypeCategory[] = [
 export const destinations: TypeDestinationListItem[] = [
     {
         name: "Banff National Park",
-        id: 1,
+        id: '7brHScqDkJqEB1NbM0GFYz',
         country: "Canada",
         categories: [
         {
@@ -52,7 +52,7 @@ export const destinations: TypeDestinationListItem[] = [
     },
     {
         name: "New York City",
-        id: 2,
+        id: '5BiUgYdVYaWRH1CHX7BKKx',
         country: "USA",
         categories: [
         {
@@ -65,7 +65,7 @@ export const destinations: TypeDestinationListItem[] = [
     },
     {
         name: "Split",
-        id: 3,
+        id: '3NLoTvtHJnJeLM22PeuKA8',
         country: "Croatia",
         categories: [
         {
@@ -78,7 +78,7 @@ export const destinations: TypeDestinationListItem[] = [
     },
     {
         name: "Cairo",
-        id: 4,
+        id: '151LnbwmVA38i5C2IrcQMO',
         country: "Egypt",
         categories: [
         {
@@ -91,7 +91,7 @@ export const destinations: TypeDestinationListItem[] = [
     },
     {
         name: "Kyoto",
-        id: 5,
+        id: '6hlC8qBNShFBy2dpjl3eyH',
         country: "Japan",
         categories: [
         {
@@ -103,7 +103,7 @@ export const destinations: TypeDestinationListItem[] = [
     },
     {
         name: "Sydney",
-        id: 6,
+        id: '4irIcXoB6Py7hPZBB2yJi9',
         country: "Australia",
         categories: [
         {
@@ -111,12 +111,12 @@ export const destinations: TypeDestinationListItem[] = [
         },
         ],
         description: "Sydney, the jewel of Australia's east coast, is a vibrant and cosmopolitan metropolis that effortlessly combines natural beauty with urban sophistication. Nestled around the iconic Sydney Harbour, this dynamic city is renowned for its striking landmarks, diverse culture, and outdoor lifestyle. From the iconic Sydney Opera House to the golden beaches and lush parks, Sydney offers a captivating blend of the modern and the traditional.",
-        heroImage: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        heroImage: "https://images.unsplash.com/photo-1597249120850-c0f3512cb6b4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     
     },
     {
         name: "Rio de Janeiro ",
-        id: 7,
+        id: 'jZ77ILy0sUegXvyeeagY8',
         country: "Brazil",
         categories: [
         {
@@ -124,7 +124,20 @@ export const destinations: TypeDestinationListItem[] = [
         },
         ],
         description: "Rio de Janeiro, a city pulsating with life and rhythm, stands as a global icon of passion, celebration, and natural beauty. Nestled between lush mountains and golden beaches, Rio captivates with its vibrant culture, samba beats, and iconic landmarks. From the famous Carnival to the towering Christ the Redeemer statue, Rio de Janeiro is a city that embraces diversity and exudes a unique energy.",
-        heroImage: "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?q=80&w=1852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        heroImage: "https://images.unsplash.com/photo-1548963670-aaaa8f73a5e3?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    
+    },
+    {
+        name: "Paris",
+        id: '4g6yjpVrDrESSBS0GeinHK',
+        country: "France",
+        categories: [
+        {
+            label: "Europe",
+        },
+        ],
+        description: "Nestled along the banks of the Seine River, Paris beckons with its romantic ambiance, artistic heritage, and iconic landmarks that exude a unique charm. PlanVoyage invites you to immerse yourself in the enchanting allure of the City of Light, where art, culture, and history converge to create an unparalleled experience.",
+        heroImage: "https://images.unsplash.com/photo-1614918616986-d88642582e9b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     
     },
 ]

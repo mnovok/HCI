@@ -87,7 +87,7 @@ const Footer = () => {
           <div className='bg-[#04371E]'>
            <hr className="my-6 border-gray-500 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-center p-2">
-              <span className="block text-base text-gray-200 sm:text-center">Copyright © 2023. All rights reserved</span>
+              <span className="block text-base text-gray-200 sm:text-center px-2">Copyright © 2023-2024 PlanVoyage. All Rights Reserved.</span>
             </div>
             <div className="h-4"></div> {/* Add space below the text */}
          </div>

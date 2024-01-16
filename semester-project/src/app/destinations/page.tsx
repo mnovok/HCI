@@ -30,7 +30,6 @@ const DestinationsPage: FC<SearchParams> = async ({ searchParams }) => {
   const filteredDestinations = typeof continentFilter === 'string'
     ? destinations.filter((destination) => destination.continent === continentFilter)
     : destinations;
-  
 
   return (
     <>

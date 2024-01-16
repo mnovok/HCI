@@ -30,7 +30,6 @@
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    padding-bottom: 2%;
     color: #FB5957;
 }
 
@@ -223,6 +222,10 @@
 }
 
 @media (max-width: 768px) {
+    .contentContainer{
+        max-width: 90vw;
+    }
+
     .title {
         font-size: 4vw;
     }

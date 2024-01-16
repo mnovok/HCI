@@ -67,17 +67,17 @@
   }
 
   .icon {
-    width: 15vw;
-    height: 15vw;
+    width: 20vw;
+    height: 20vw;
   }
 
   .title {
-    font-size: 3vw;
+    font-size: 4vw;
     font-weight: 600;
   }
   
   .text {
-    font-size: 2.5vw;
+    font-size: 2.7vw;
     color: gray;
   }
 }

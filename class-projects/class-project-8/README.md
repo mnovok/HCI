@@ -1,4 +1,4 @@
-# Working on Semester Project (2/4) 
+# Weekly progress, status and problems (2/4)
 
 ## Results ✔️
 

@@ -12,6 +12,8 @@ export default function SearchPage(){
     const [searchFilter, setSearchFilter] = useState('');
     const router = useRouter();
     const pathname = usePathname();
+    const [shuffledSuggestions, setShuffledSuggestions] = useState<TypeDestinationListItem[]>([]);
+    const randomStartIndex = Math.floor(Math.random() * (5));
 
     const setSearchParam = useCallback(
         (name: string, value: string) => {
@@ -54,6 +56,21 @@ export default function SearchPage(){
           destination.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
           destination.country.toLowerCase() === searchFilter.toLowerCase()
       );
+
+      const shuffleArray = (array: TypeDestinationListItem[]) => {
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+      };
+
+      useEffect(() => {
+        const shuffledArray = shuffleArray(destinations.slice(randomStartIndex, randomStartIndex + 4));
+        setShuffledSuggestions(shuffledArray);
+      }, [destinations]);
+
     
     return(
         <div className={styles.searchMain}>
@@ -99,7 +116,7 @@ export default function SearchPage(){
                     ) : (
                         <>
                         <span className={styles.suggestionsHeader}>Results:</span>
-                        <p className={styles.failedSearchText}>No destinations/blogs found. Try searching something else.</p></>
+                        <p className={styles.failedSearchText}>No destinations found. Try searching something else.</p></>
                     )
                 )}
 
@@ -107,7 +124,7 @@ export default function SearchPage(){
             <div className={styles.suggestionsContainer}>
                 <span className={styles.suggestionsHeader}>Suggestions:</span>
                 <div className={styles.destinationsSuggestions}>
-                    {destinations.slice(0,4).map((destination: TypeDestinationListItem) => (
+                    {shuffledSuggestions.slice(0,4).map((destination: TypeDestinationListItem) => (
                         <div key={destination.id} className={styles.destinationCard}>
                         <Link href={`destinations/${destination.id}`}>
                           <div className={styles.imageContainer}>
