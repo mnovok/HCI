@@ -52,7 +52,13 @@ const DestinationsPage: FC<SearchParams> = async ({ searchParams }) => {
               <Link href={`destinations/${destination.id}`}>
                 <div className={styles.imageContainer}>
                   <Image src="/images/heart2.png" alt="Heart" width={23} height={23} className={styles.heart} loading="lazy"/>
-                  <img src={destination.thumbnail} alt={destination.thumbnail} className={styles.destinationImage} />
+                  <Image
+                      src={destination.thumbnail}
+                      alt={destination.thumbnail}
+                      layout="responsive"
+                      className={styles.destinationImage}
+                      loading="lazy"
+                    />
                 </div>
                 <h2 className={styles.name}>{destination.title}</h2>
                 <p className={styles.country}>{destination.country}</p>
