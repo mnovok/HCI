@@ -38,6 +38,7 @@ const HeroSection = () => (
               width={50}
               height={50}
               className={styles.smallImage}
+              loading="lazy"
             />
               <h2 className={styles.countryTitle}>{destination.country}</h2>
           </div>

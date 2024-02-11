@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className={styles.main}>
       <div className={styles.landingFrame1}>
-        <Image className={styles.bgIMG} src={'/images/bg.jpg'} alt={'backgroundIMG'} fill={true} priority/>
+        <Image className={styles.bgIMG} src={'/images/bg.jpg'} alt={'backgroundIMG'} fill={true} priority layout="fill" objectFit="cover"  />
         <div className={styles.sloganContainer}>
           <p className={styles.slogan}>Navigating Your Journey, One Adventure at a Time!</p>
           <Link href="/destinations" className={styles.btn}>Explore Now</Link>
