@@ -106,7 +106,7 @@ export default async function Blog({
           <div key={blog.id} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
             <Link href={`blogs/${blog.id}`}>
               <div
-                className={`${styles.blogCardItem} h-80 md:h-64 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}
+                className={`${styles.blogCardItem} loading="lazy" h-80 md:h-64 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}
                 style={{
                   backgroundImage: `url(${blog.thumbnail})`,
                   backgroundSize: 'cover',
@@ -119,7 +119,7 @@ export default async function Blog({
                 </span>
                 
                 <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
-                  <div className={`${styles.avatar} w-10 h-10 rounded-full mr-4`} 
+                  <div className={`${styles.avatar} loading="lazy" w-10 h-10 rounded-full mr-4`} 
                    style={{
                     backgroundImage: `url(${blog.avatar})`,  backgroundSize: 'cover',
                     backgroundPosition: 'center',
