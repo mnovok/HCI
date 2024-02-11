@@ -84,7 +84,7 @@ export default function SearchPage(){
                            name="search"
                            onChange={handleSearchInput} />
                     <button type='submit'>
-                        <Image src="/images/search.png" alt="Location" width={20} height={20} className={styles.searchIcon} />
+                        <Image src="/images/search.png" alt="Location" width={20} height={20} className={styles.searchIcon} loading="lazy"/>
                     </button>
                 </form>
                 {searchFilter !== "" && (
@@ -103,7 +103,7 @@ export default function SearchPage(){
                             <div key={destination.id} className={styles.destinationCard}>
                             <Link href={`destinations/${destination.id}`}>
                                 <div className={styles.imageContainer}>
-                                <Image src="/images/heart2.png" alt="Heart" width={23} height={23} className={styles.heart}/>
+                                <Image src="/images/heart2.png" alt="Heart" width={23} height={23} className={styles.heart} loading="lazy"/>
                                 <img src={destination.heroImage} alt={destination.name} className={styles.destinationImage} />
                                 </div>
                                 <h2 className={styles.name}>{destination.name}</h2>
