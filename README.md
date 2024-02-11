@@ -1,6 +1,7 @@
 ﻿# Human Computer Interaction <!-- omit in toc -->
 
 Travelling Web App deployed to [Vercel](https://planvoyage.vercel.app/) 🌍🧳✈️
+
 Documentation on [Notion](https://hciplanvoyage.notion.site/hciplanvoyage/HCI-Projekt-PlanVoyage-35c4aebf467247f29ce52c58a72cb403)
 
 PlanVoyage, a Next.js web app, fetches destinations and blogs from Contentful. Users can filter destinations by continent, search for locations, and explore randomized suggestions. Future plans include implementing sign-in functionality for enhanced user interaction, while the app prioritizes a stylish and user-friendly design.
