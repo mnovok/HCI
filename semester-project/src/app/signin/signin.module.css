@@ -119,7 +119,9 @@
 .leftImage {
     max-width: 100%; 
     height: 95vh;
-    opacity: 90%;
+    opacity: 100%;
+    border-radius: 0% 1% 1% 0%;
+    transition: border-radius 0.5s ease;
 }
 
 .rightPanel {

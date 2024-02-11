@@ -43,7 +43,7 @@ const Footer = () => {
                         <h2 className="mb-6 text-base font-semibold uppercase">Contact</h2>
                         <ul className="text-gray-500 dark:text-gray-400 font-medium">
                             <li className="mb-4"><a href="https://github.com/mnovok/HCI" className="hover:underline">GitHub</a></li>
-                            <li className="mb-4"><a href="#">+385 99 707 2510</a></li>
+                            <li className="mb-4"><a href="#">+385 99 707 0707</a></li>
                             <li className="mb-4"><a href="#" className="hover:underline">planvoyage@gmail.com</a></li>
                             <li>
                               <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
