@@ -48,11 +48,12 @@ const ContinentFilter = ({ categories }: CategoryFilterProps) => {
       {categories.map((category) => (
         <div
           key={category?.label}
-          className={`${styles.category} cursor-pointer ${
+          /*className={`${styles.category} cursor-pointer ${
             categoryFilter !== "" &&
             categoryFilter !== category?.label &&
-            "opacity-30"
-          }`}
+            "opacity-30" 
+          }`}*/
+          className={`${styles.category} ${category?.label.toUpperCase() === categoryFilter.toUpperCase() ? styles.activeCategory : ''}`}
           onClick={() => setSearchParam("_category", category?.label as string)}
         >
           {category?.label}
