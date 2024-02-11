@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import styles from './blog.module.css';
 import contentfulService from "../../../lib/contentfulClient";
 import Pagination from "../(contentful)/types/_components/Pagination";
-import { useState } from "react";
+import Image from 'next/image';
 
 export type PageProps = {
   page: number;
@@ -105,27 +105,26 @@ export default async function Blog({
         {slicedBlogs.map((blog) => (
           <div key={blog.id} className={`relative col-span-1 md:col-span-2 lg:col-span-1`}>
             <Link href={`blogs/${blog.id}`}>
-              <div
-                className={`${styles.blogCardItem} loading="lazy" h-80 md:h-64 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}
-                style={{
-                  backgroundImage: `url(${blog.thumbnail})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                }}
-              >
+            <div className={`${styles.blogCardItem} h-80 md:h-64 lg:h-80 p-4 border border-gray-300 rounded relative hover:opacity-80`}>
+              <Image
+                src={blog.thumbnail}
+                alt={`Thumbnail for ${blog.title}`}
+                layout="fill"
+                objectFit="cover"
+              />
                 <span className={`${styles.cardText} text-2xl md:text-xl lg:text-2xl xl:text-3xl font-semibold capitalize`}>
                   {blog.title}
                 </span>
                 
                 <div className={`${styles.authorInfo} absolute bottom-4 left-4 w-full flex items-center p-2`}>
-                  <div className={`${styles.avatar} loading="lazy" w-10 h-10 rounded-full mr-4`} 
-                   style={{
-                    backgroundImage: `url(${blog.avatar})`,  backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                  }}>
-                  </div> 
+                  <div className={`${styles.avatar} w-10 h-10 rounded-full mr-4`}>
+                    <Image
+                      src={blog.avatar}
+                      alt={`Avatar for ${blog.author}`}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
                     <p className={styles.cardInfo}>{blog.author} • {formatDate(blog.datePosted)}</p>
                 </div>
               </div>
