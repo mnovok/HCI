@@ -55,7 +55,8 @@ const DestinationsPage: FC<SearchParams> = async ({ searchParams }) => {
                   <Image
                       src={destination.thumbnail}
                       alt={destination.thumbnail}
-                      layout="responsive"
+                      width={300}
+                      height={300}
                       className={styles.destinationImage}
                       loading="lazy"
                     />
