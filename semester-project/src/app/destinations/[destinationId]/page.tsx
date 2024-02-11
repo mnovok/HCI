@@ -18,7 +18,7 @@ export default async function DestinationPost({ params }: { params: Params })  {
         <>
         <main className={styles.main}>
             <div className={styles.headerContainer}>
-                <Image src={destination.thumbnail} alt="thumbnail" width={500} height={500} priority className={styles.headerImage} />
+                <Image src={destination.thumbnail} alt="thumbnail"  priority layout="fill" className={styles.headerImage} />
                 <div className={styles.overlay}>
                     <h1 className={styles.name}>{destination.title}</h1>
                     <div className={styles.countryContainer}>
